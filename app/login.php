@@ -1,11 +1,5 @@
 <?php require 'templates/header.php';?>
-<?php
-require '../config/config.php';
-
-
-
-
-?>
+<?phprequire '../config/config.php';?>
 <div class='container'>
 	<form method="post" action="controllers/authController.php" role="form" class="login-form col-md-4 col-md-offset-4">
 		<fieldset>
