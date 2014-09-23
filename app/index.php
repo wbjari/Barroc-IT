@@ -5,7 +5,7 @@
 if(!isset($_SESSION['name']))
 {
 	$msg = urlencode('U dient ingelogd te zijn');
-	header('location: login.php' . $msg);
+	header('location: login.php?msg=' . $msg);
 }
 $userrole = $_SESSION['userrole'];
 	switch($userrole)
@@ -17,7 +17,8 @@ $userrole = $_SESSION['userrole'];
 		header('location: development');
 		break;
 		default:
-		header('location: controllers/authController.php');
+		var_dump($userrole);
+		/*header('location: controllers/authController.php');*/
 
 	}
 ?>
