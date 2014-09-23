@@ -4,7 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Barroc IT</title>
-	<link rel="stylesheet" href="http://barroc.radiusdev.nl/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/bootstrap-them.min.css">
 </head>
 <body>
 	

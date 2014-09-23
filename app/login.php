@@ -1,4 +1,4 @@
-<? require 'templates/header.php';?>
+<?php require 'templates/header.php';?>
 <?php
 require '../config/config.php';
 
