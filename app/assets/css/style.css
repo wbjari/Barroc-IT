@@ -16,7 +16,31 @@
 #banner {
 	width:100%;
 	position: absolute;
+	z-index: -1;
 }
+
+.maincontent {
+	background-color:#ffffff;
+	width:100%;
+	height:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .panel-text 
 {

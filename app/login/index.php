@@ -16,4 +16,4 @@
 			</div>
 		</fieldset>
 	</form>
-<? require 'templates/footer.php';?>
+<?php require 'templates/footer.php'; ?>
