@@ -35,6 +35,12 @@ if(isset($_POST['authUser']))
 		}
 		
 }
-
+if(isset($_GET['logout']))
+{	
+	session_start();
+	session_destroy();
+	$msg = urlencode("U bent succesvol uitgelogd");
+	header('location: ../login/?msg=' . $msg);
+}
 
 ?>

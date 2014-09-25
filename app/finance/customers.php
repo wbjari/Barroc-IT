@@ -1,20 +1,13 @@
 <?php 	require '../templates/header.php';
 		require '../controllers/invoiceController.php';
-
-if($_SESSION['role'] != 1)
-{
-	header('location: ../index.php');
-}
 ?>
 
 <div class="panel-text">
-    <h1>Finance panel</h1>
+    <h1>Finance panel: Customers</h1>
 </div>
-<div class='form-group'>
-	<input type='submit'name='logout' id='Logout' class='btn btn-large' value='Logout'>
-</div>
+
 <ul class="list-unstyled">
-<li><a href="invoices.php">Invoices</a></li>
+<li><a href="index.php">Main</a></li>
 <li><a href="customers.php">Customers</a></li>
 </ul>
 <table class='table table-striped'>
@@ -38,6 +31,5 @@ if($_SESSION['role'] != 1)
 		?>
 		</tbody>
 </table>
-
 
 <?php require'../templates/footer.php';?>
