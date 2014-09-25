@@ -1,6 +1,5 @@
 <?php require '../templates/header.php';?>
 <?php require '../../config/config.php';?>
-<div class='container'>
 	<form method="post" action="../controllers/authController.php" role="form" class="login-form col-md-4 col-md-offset-4">
 		<fieldset>
 			<legend><h2>Login</h2></legend>
@@ -17,5 +16,4 @@
 			</div>
 		</fieldset>
 	</form>
-</div>
 <? require 'templates/footer.php';?>

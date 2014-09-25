@@ -8,10 +8,14 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 <body>		
-	<div class="container">
-		<div class="page-header">		
-				<div class="banner">
-					<h1>BARROC IT.</h1>
-					<h1>SOFTWARE FOR REAL.</h1>
-				</div>
+	<div class="page-header">		
+		<img src="../img/banner.png" id="banner" />
+		<div class="container">
+			<div class="banner">
+				<h1>BARROC IT.</h1>
+				<h1>SOFTWARE FOR REAL.</h1>
+			</div>
 		</div>
+	</div>
+	<div class="container">
+		<div class-"maincontent">

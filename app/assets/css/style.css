@@ -1,11 +1,7 @@
-/*-----BODY----------------------------------------------------------------------------------------------------*/
-
-body {
-	background:url(../../img/banner.png) no-repeat;
+/*HEADER--------------------------------------------------------------------------------------------------*/
+.header_container {
+	width:900px;
 }
-
-/*-----HEADER--------------------------------------------------------------------------------------------------*/
-
 .banner > h1 {
 	position:relative;
 	text-shadow: 2px 2px 3px black;
@@ -13,15 +9,19 @@ body {
 	line-height: 0.8em;
 }
 
+.banner {
+	margin-top: 10%;
+}
+
 #banner {
 	width:100%;
-
+	position: absolute;
 }
 
 .panel-text 
 {
-margin: auto;
-font-size: 36px;
-width: 460px;
-position: relative;
+ font-size: 36px;
+ margin-left: 310px;
+ width: 460px;
+ position: relative;
 }
