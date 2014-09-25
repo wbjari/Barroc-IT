@@ -7,14 +7,14 @@
 	</div>
 	<div class="row">
 		<table class="table table-striped table-bordered">
-			<thread>
+			<thead>
 				<tr>
 					<th>Project ID</th>
 					<th>Project name</th>
 					<th>Costumer</th>
 					<th>Email</th>
 				</tr>
-			</thread>
+			</thead>
 			<tbody>
 			<?php
 				$result = mysqli_query($con, 'SELECT * FROM projects ORDER BY id ASC');
