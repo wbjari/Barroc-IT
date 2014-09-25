@@ -2,12 +2,12 @@
 
 
 <?php
-if(!isset($_SESSION['name']))
+if(!isset($_SESSION['username']))
 {
 	$msg = urlencode('U dient ingelogd te zijn');
 	header('location: login.php?msg=' . $msg);
 }
-$userrole = $_SESSION['userrole'];
+$userrole = $_SESSION['role'];
 	switch($userrole)
 	{
 		case 1;
@@ -17,8 +17,7 @@ $userrole = $_SESSION['userrole'];
 		header('location: development');
 		break;
 		default:
-		var_dump($userrole);
-		/*header('location: controllers/authController.php');*/
+		header('location: controllers/authController.php');
 
 	}
 ?>
