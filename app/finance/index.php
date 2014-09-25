@@ -1,5 +1,10 @@
 <?php 	require '../templates/header.php';
 		require '../controllers/invoiceController.php';
+
+if($_SESSION['role'] != 1)
+{
+	header('location: ../index.php');
+}
 ?>
 
 <table class='table table-striped'>
