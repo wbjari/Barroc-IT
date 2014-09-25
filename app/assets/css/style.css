@@ -1,6 +1,21 @@
-.banner {
+/*-----BODY----------------------------------------------------------------------------------------------------*/
+
+body {
+	background:url(../../img/banner.png) no-repeat;
+}
+
+/*-----HEADER--------------------------------------------------------------------------------------------------*/
+
+.banner > h1 {
+	position:relative;
+	text-shadow: 2px 2px 3px black;
+	color: gray;
+	line-height: 0.8em;
+}
+
+#banner {
 	width:100%;
-	
+
 }
 
 .panel-text 
