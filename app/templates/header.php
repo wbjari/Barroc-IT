@@ -10,4 +10,4 @@
 	<link rel="stylesheet" href="assets/css/bootstrap-them.min.css">
 </head>
 <body>
-	
+	<div class="container">
