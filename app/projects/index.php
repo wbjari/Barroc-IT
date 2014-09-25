@@ -1,5 +1,10 @@
 <?php require '../templates/header.php'; 
 	require '../../config/config.php';	
+
+	if($_SESSION['role'] != 2)
+{
+	header('location: ../index.php');
+}
 ?>
 <div class="container">
 	<div class="row">
