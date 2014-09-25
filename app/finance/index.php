@@ -7,6 +7,10 @@ if($_SESSION['role'] != 1)
 }
 ?>
 
+<div class="panel-text">
+    <h1><font color="#ff0000">B</font>arroc-IT <font color="#ff0000">S</font>ales-Panel</h1>
+</div>
+
 <table class='table table-striped'>
 		<thead>
 			<tr>
