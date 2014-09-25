@@ -13,7 +13,7 @@
 				<input type='password'name='password' id='password' class='form-control'>
 			</div>
 			<div class='form-group'>
-				<input type='submit'name='authUser' id='Login' class='btn btn-large'>
+				<input type='submit'name='authUser' id='Login' class='btn btn-large' value='Login'>
 			</div>
 		</fieldset>
 	</form>

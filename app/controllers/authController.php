@@ -28,6 +28,12 @@ if(isset($_POST['authUser']))
 				header('location: ../login.php?msg=' . $msg);
 			}
 		}
+		else
+		{
+				$msg = 'Gebruikersnaam of wachtwoord klopt niet.';
+				header('location: ../login.php?msg=' . $msg);
+		}
+		
 }
 
 
