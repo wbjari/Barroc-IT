@@ -8,9 +8,13 @@ if($_SESSION['role'] != 1)
 ?>
 
 <div class="panel-text">
-    <h1><font color="#ff0000">B</font>arroc-IT <font color="#ff0000">S</font>ales-Panel</h1>
+    <h1>Finance panel</h1>
 </div>
 
+<ul class="list-unstyled">
+<li><a href="invoices.php">Invoices</a></li>
+<li><a href="customers.php">Customers</a></li>
+</ul>
 <table class='table table-striped'>
 		<thead>
 			<tr>

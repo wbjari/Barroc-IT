@@ -5,8 +5,8 @@
 
 .panel-text 
 {
- font-size: 36px;
- margin-left: 310px;
- width: 460px;
- position: relative;
+margin: auto;
+font-size: 36px;
+width: 460px;
+position: relative;
 }
