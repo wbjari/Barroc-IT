@@ -5,7 +5,7 @@
 if(!isset($_SESSION['username']))
 {
 	$msg = urlencode('U dient ingelogd te zijn');
-	header('location: login.php?msg=' . $msg);
+	header('location: login/index.php?msg=' . $msg);
 }
 $userrole = $_SESSION['role'];
 	switch($userrole)
