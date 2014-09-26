@@ -16,6 +16,12 @@ $userrole = $_SESSION['role'];
 		case 2:
 		header('location: development');
 		break;
+		case 3;
+		header('location: sales');
+		break;
+		case 4:
+		header('location: admin');
+		break;
 		default:
 		header('location: controllers/authController.php');
 
