@@ -21,8 +21,28 @@ if($_SESSION['role'] != 3)
         <th>E-mail address</th>
         <th>Telephone number</th>
         <th>Prospect</th>
+        <th></th>
       </tr>
     </thead>
+    <tbody>
+      <?php
+        $result = mysqli_query($con, 'SELECT * FROM sales ORDER BY id ASC');
+
+        while($row = mysqli_fetch_array($result)) {
+          echo '<tr>';
+          echo '<td>'. $row['companyname'] . '</td>';
+          echo '<td>'. $row['contactperson'] . '</td>';
+          echo '<td>'. $row['email'] . '</td>';
+          echo '<td>'. $row['telephone'] . '</td>';
+          echo '<td>'. $row['prospect'] . '</td>';
+          echo '<td width=200>';
+          echo '<a class="btn btn-success" href="view.php?id='.$row['id'].'">View</a>';
+          echo '</tr>';
+        }
+
+        mysqli_close($con);
+      ?>
+      </tbody>
 	</table>
 </div>
 
