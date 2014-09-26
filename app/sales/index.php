@@ -12,6 +12,12 @@ if($_SESSION['role'] != 3)
 <div class="panel-text">
 	<h1>Sales panel: Customers
 </div>
+  <div class='float_btn'>
+    <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+  </div>
+  <div class='button_add'>
+  <a class='btn btn-primary' href='<?php echo "#"?>'>Add</a>
+  </div>
 <div class="row">
 	<table class="table table-striped table-bordered">
     <thead>
