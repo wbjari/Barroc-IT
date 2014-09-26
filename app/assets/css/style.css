@@ -1,4 +1,5 @@
 /*HEADER--------------------------------------------------------------------------------------------------*/
+*{margin: 0px; padding: 0px;}
 .header_container {
 	width:900px;
 }
@@ -10,7 +11,7 @@
 }
 
 .banner {
-	margin-top: 10%;
+	margin-top: 20%;
 }
 
 #banner {

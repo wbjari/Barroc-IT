@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 <body>		
-	<div class="page-header">		
+	<div class="pageheader">		
 		<img src="../img/banner.png" id="banner" />
 		<div class="container">
 			<div class="banner">
