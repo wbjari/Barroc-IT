@@ -5,10 +5,16 @@ if($_SESSION['role'] != 1)
 {
 	header('location: ../index.php');
 }
+if(isset($_GET['id']))
+{
+	$id = $_GET['id'];
+	$view = "SELECT * FROM invoices WHERE id = '$id'";
+	$r_view = mysqli_query($con, $view);
+}
 ?>
 
 <div class="panel-text">
-    <h1>Finance panel</h1>
+    <h1>Finance panel: View</h1>
 </div>
 <div class='form-group'>
 	<input type='submit'name='authController' id='Logout' class='btn btn-large' value='Logout'>
@@ -27,12 +33,11 @@ if($_SESSION['role'] != 1)
 		</thead>
 		<tbody>
 		<?php
-		  while ($row = mysqli_fetch_assoc($r_invoices)) 
+		  while ($row = mysqli_fetch_assoc($r_view)) 
         {
          echo '<tr>';
          echo '<td>' . $row['Customername'] . '</td>';
          echo '<td>' . $row['Customerproject'] . '</td>';
-         echo '<td> <a href="view.php?id=' . $row['id'] . '"</a> View </td>';
          echo '</tr>';        
         }       
 		?>
