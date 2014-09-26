@@ -12,8 +12,8 @@
 				<input type='password'name='password' id='password' class='form-control'>
 			</div>
 			<div class='form-group'>
-				<input type='submit'name='authUser' id='Login' class='btn btn-large' value='Login'>
+				<input type='submit'name='authUser' id='Login' class='btn btn-primary' value='Login'>
 			</div>
 		</fieldset>
 	</form>
-<?php require 'templates/footer.php'; ?>
+<?php require '../templates/footer.php'; ?>

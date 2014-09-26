@@ -11,7 +11,7 @@ if($_SESSION['role'] != 1)
     <h1>Finance panel</h1>
 </div>
   <div class='float_btn'>
-	<a class='btn btn-large' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
 <!-- <ul class="list-unstyled">
 <li><a href="invoices.php">Invoices</a></li>
