@@ -21,9 +21,7 @@ if(isset($_GET['id']))
 	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
 </div>
-<div class='form-group'>
-  <a class='btn btn-success' href='<?php echo "edit.php?id=$id" ?>'>Edit</a>
-</div>
+
 <!-- <ul class="list-unstyled">
 <li><a href="invoices.php">Invoices</a></li>
 <li><a href="customers.php">Customers</a></li>
@@ -31,6 +29,6 @@ if(isset($_GET['id']))
 
 
 <div class='form-group'>
-  <a class='btn btn-default' href='index.php'>Back</a>
+  <a class='btn btn-default' href='<?php echo "view.php?id=$id" ?>'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>
