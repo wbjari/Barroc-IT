@@ -22,7 +22,7 @@ if(isset($_GET['id']))
   </div>
 </div>
 <div class='form-group'>
-  <a class='btn btn-success' href='edit.php'>Edit</a>
+  <a class='btn btn-success' href='<?php echo "edit.php?id=$id" ?>'>Edit</a>
 </div>
 <!-- <ul class="list-unstyled">
 <li><a href="invoices.php">Invoices</a></li>
