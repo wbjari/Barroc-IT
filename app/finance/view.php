@@ -23,25 +23,36 @@ if(isset($_GET['id']))
 <li><a href="invoices.php">Invoices</a></li>
 <li><a href="customers.php">Customers</a></li>
 </ul> -->
-<table class='table table-striped'>
-		<thead>
-			<tr>
-				<td class="col-sm-2">Customername</td>
-				<td class="col-sm-2">Customerproject</td>
-			</tr>
-			</tr>
-		</thead>
-		<tbody>
-		<?php
-		  while ($row = mysqli_fetch_assoc($r_view)) 
+
+ <table class='table table-striped'>
+    <thead>
+      <tr>
+      <?php
+      while ($row = mysqli_fetch_assoc($r_view)) 
         {
-         echo '<tr>';
-         echo '<td>' . $row['Customername'] . '</td>';
-         echo '<td>' . $row['Customerproject'] . '</td>';
+          echo '<tr>';
+          ?>
+        <td class="col-sm-2">Customername</td>
+        <?php echo '<td>' . $row['Customername'] . '</td>';?>
+        <td class="col-sm-2">Customerproject</td>
+         <?php echo '<td>' . $row['Customerproject'] . '</td>';?>
+         <td class="col-sm-2">Customername</td>
+        <?php echo '<td>' . $row['Customername'] . '</td>';?>
+        <td class="col-sm-2">Customerproject</td>
+         <?php echo '<td>' . $row['Customerproject'] . '</td>';?>
+         <td class="col-sm-2">Customername</td>
+        <?php echo '<td>' . $row['Customername'] . '</td>';?>
+        <td class="col-sm-2">Customerproject</td>
+         <?php echo '<td>' . $row['Customerproject'] . '</td>';?>
+
+      </tr>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
          echo '</tr>';        
         }       
-		?>
-		</tbody>
+    ?>
 </table>
 
 

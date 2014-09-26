@@ -25,13 +25,13 @@ if(isset($_POST['authUser']))
 			else
 			{
 				$msg = 'Gebruikersnaam of wachtwoord klopt niet.';
-				header('location: ../login.php?msg=' . $msg);
+				header('location: ../login/index.php?msg=' . $msg);
 			}
 		}
 		else
 		{
 				$msg = 'Gebruikersnaam of wachtwoord klopt niet.';
-				header('location: ../login.php?msg=' . $msg);
+				header('location: ../login/index.php?msg=' . $msg);
 		}
 		
 }
