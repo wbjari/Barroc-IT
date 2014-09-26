@@ -28,5 +28,4 @@ $userrole = $_SESSION['role'];
 	}
 ?>
 
-
 <?php require'templates/footer.php';?>
