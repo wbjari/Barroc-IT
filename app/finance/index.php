@@ -10,9 +10,9 @@ if($_SESSION['role'] != 1)
 <div class="panel-text">
     <h1>Finance panel</h1>
 </div>
-<div class='form-group'>
-	<input type='submit'name='authController' id='Logout' class='btn btn-large' value='Logout'>
-</div>
+  <div class='float_btn'>
+	<a class='btn btn-large' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+  </div>
 <!-- <ul class="list-unstyled">
 <li><a href="invoices.php">Invoices</a></li>
 <li><a href="customers.php">Customers</a></li>

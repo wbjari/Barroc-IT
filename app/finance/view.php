@@ -18,7 +18,7 @@ if(isset($_GET['id']))
 </div>
 <div class='form-group'>
   <div class='float_btn'>
-	<input type='submit'name='authController' id='Logout' class='btn btn-large' value='Logout'>
+	<a class='btn btn-large' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
 </div>
 <div class='form-group'>

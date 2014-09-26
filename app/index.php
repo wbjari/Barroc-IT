@@ -23,7 +23,7 @@ $userrole = $_SESSION['role'];
 		header('location: admin');
 		break;
 		default:
-		header('location: controllers/authController.php');
+		header('location: controllers/authController.php?logout=true');
 
 	}
 ?>
