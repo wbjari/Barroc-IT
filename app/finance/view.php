@@ -18,7 +18,7 @@ if(isset($_GET['id']))
 </div>
 <div class='form-group'>
   <div class='float_btn'>
-	<a class='btn btn-large' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
 </div>
 <div class='form-group'>
@@ -50,6 +50,6 @@ if(isset($_GET['id']))
 </table>
 
 <div class='form-group'>
-  <a class='btn btn-success' href='index.php'>Back</a>
+  <a class='btn btn-default' href='index.php'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>
