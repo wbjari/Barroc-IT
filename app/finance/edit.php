@@ -22,10 +22,7 @@ if(isset($_GET['id']))
   </div>
 </div>
 
-<!-- <ul class="list-unstyled">
-<li><a href="invoices.php">Invoices</a></li>
-<li><a href="customers.php">Customers</a></li>
-</ul> -->
+
 
 
 <div class='form-group'>

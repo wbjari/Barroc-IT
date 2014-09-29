@@ -1,5 +1,5 @@
 <?php
 
-$con = mysqli_connect('localhost', 'root', '', 'barrocit');
+$con = mysqli_connect('localhost', 'root', '', 'barroc-it');
 
 ?>

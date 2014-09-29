@@ -6,7 +6,7 @@ if(isset($_POST['authUser']))
 {
 	$username = mysqli_real_escape_string($con, $_POST['username']);
 	$password = mysqli_real_escape_string($con, $_POST['password']);
-	$sql = "SELECT username, password, userrole FROM login WHERE username = '$username'";
+	$sql = "SELECT username, password, userrole FROM users WHERE username = '$username'";
 		if(!$query = mysqli_query($con, $sql))
 		{
 			trigger_error('Check sql voor fouten!');
