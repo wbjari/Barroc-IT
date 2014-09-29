@@ -8,7 +8,7 @@ if($_SESSION['role'] != 1)
 if(isset($_GET['id']))
 {
 	$id = $_GET['id'];
-	$view = "SELECT * FROM invoices WHERE id = '$id'";
+	$view = "SELECT * FROM customers WHERE  CustomerNR= '$id'";
 	$r_view = mysqli_query($con, $view);
 }
 ?>
@@ -28,8 +28,8 @@ if(isset($_GET['id']))
  <table class='table table-striped'>
     <thead>
       <tr>
-        <td class="col-sm-2">Customername</td>
-        <td class="col-sm-2">Customerproject</td>
+        <td class="col-sm-2">Companyname</td>
+        <td class="col-sm-2">Adress</td>
       </tr>
       </tr>
     </thead>
@@ -38,8 +38,8 @@ if(isset($_GET['id']))
       while ($row = mysqli_fetch_assoc($r_view)) 
         {
          echo '<tr>';
-         echo '<td>' . $row['Customername'] . '</td>';
-         echo '<td>' . $row['Customerproject'] . '</td>';
+         echo '<td>' . $row['CompanyName'] . '</td>';
+         echo '<td>' . $row['Adress1'] . '</td>';
          echo '</tr>';        
         }       
     ?>

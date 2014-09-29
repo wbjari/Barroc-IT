@@ -20,8 +20,8 @@ if($_SESSION['role'] != 1)
 <table class='table table-striped'>
 		<thead>
 			<tr>
-				<td class="col-sm-2">Customername</td>
-				<td class="col-sm-2">Customerproject</td>
+				<td class="col-sm-2">Companyname</td>
+				<td class="col-sm-2">Adress</td>
 			</tr>
 			</tr>
 		</thead>
@@ -30,9 +30,9 @@ if($_SESSION['role'] != 1)
 		  while ($row = mysqli_fetch_assoc($r_invoices)) 
         {
          echo '<tr>';
-         echo '<td>' . $row['Customername'] . '</td>';
-         echo '<td>' . $row['Customerproject'] . '</td>';
-         echo '<td> <a href="view.php?id=' . $row['id'] . '"</a> View </td>';
+         echo '<td>' . $row['CompanyName'] . '</td>';
+         echo '<td>' . $row['Adress1'] . '</td>';
+         echo '<td> <a href="view.php?id=' . $row['CustomerNR'] . '"</a> View </td>';
          echo '</tr>';        
         }       
 		?>
