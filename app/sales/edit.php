@@ -18,11 +18,8 @@ if(isset($_GET['id']))
 </div>
 <div class='form-group'>
   <div class='float_btn'>
-	<input type='submit'name='authController' id='Logout' class='btn btn-large' value='Logout'>
+	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
-</div>
-<div class='form-group'>
-  <a class='btn btn-success' href='<?php echo "edit.php?id=$id" ?>'>Edit</a>
 </div>
 <!-- <ul class="list-unstyled">
 <li><a href="invoices.php">Invoices</a></li>
@@ -31,6 +28,5 @@ if(isset($_GET['id']))
 
 
 <div class='form-group'>
-  <a class='btn btn-success' href='index.php'>Back</a>
-</div>
-<?php require'../templates/footer.php';?>
+  <a class='btn btn-default' href='<?php echo "view.php?id=$id" ?>'>Back</a>
+</div><?php require'../templates/footer.php';?>
