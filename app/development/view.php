@@ -14,22 +14,30 @@ if($_SESSION['role'] != 2)
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr>	
-				<th>Project name</th>
-				<th>Company name</th>
+				<th>Project NR</th>
+				<th>Company NR</th>
+				<th>Project Name</th>
 				<th>Maintenance Contract</th>
-				<th>Status</th>
+				<th>Hardware</th>
+				<th>Software</th>
+				<th>Appointments</th>
+				<th>Status Project</th>
 			</tr>
 		</thead>
 		<tbody>
 		<?php
-			$result = mysqli_query($con, 'SELECT * FROM projects ORDER BY id ASC');
+			$result = mysqli_query($con, 'SELECT * FROM projects ORDER BY ProjectNR ASC');
 
 			while($row = mysqli_fetch_array($result)) {
 				echo '<tr>';
-				echo '<td>'. $row['projectname'] . '</td>';
-				echo '<td>'. $row['companyname'] . '</td>';
-				echo '<td>'. $row['maintenancecontract'] . '</td>';
-				echo '<td>'. $row['status'] . '</td>';
+				echo '<td>'. $row['ProjectNR'] . '</td>';
+				echo '<td>'. $row['CustomerNR'] . '</td>';
+				echo '<td>'. $row['ProjectName'] . '</td>';
+				echo '<td>'. $row['MaintenanceContract'] . '</td>';
+				echo '<td>'. $row['Hardware'] . '</td>';
+				echo '<td>'. $row['Software'] . '</td>';
+				echo '<td>'. $row['Appointments'] . '</td>';
+				echo '<td>'. $row['StatusProject'] . '</td>';
 				echo '</tr>';
 			}
 
