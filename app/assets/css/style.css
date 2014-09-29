@@ -40,7 +40,10 @@
 .button_add {
 	float:left;
 }
-
+.float_left{
+	float:left;
+	margin: 5px;
+}
 
 
 

@@ -6,15 +6,14 @@ if($_SESSION['role'] != 1)
 	header('location: ../index.php');
 }
 
-
-
 if (isset($_POST['submit'])) 
 {
-	$id = $_GET['id'];
-	$CompanyName = mysqli_real_escape_string($con, $_POST['CompanyName']);
-	$Adress = mysqli_real_escape_string($con, $_POST['Adress']);
-	$query = "UPDATE customers SET CompanyName = '$CompanyName', Adress1 = '$Adress' WHERE CustomerNR = '$id' LIMIT 1";
-	$result = mysqli_query($con, $query);
+  $id = $_GET['id'];
+  $CompanyName = mysqli_real_escape_string($con, $_POST['CompanyName']);
+  $Adress = mysqli_real_escape_string($con, $_POST['Adress']);
+  $query = "INSERT INTO customers (CompanyName, Adress1)
+                        VALUES    ('$CompanyName','$Adress')";
+  $result = mysqli_query($con, $query);
     Header("location: ./view.php?id=".$id);  
       
 }
@@ -27,7 +26,7 @@ if(isset($_GET['id']))
 }
 ?>
 <div class="panel-text">
-    <h1>Finance panel: Edit</h1>
+    <h1>Finance panel: Add</h1>
 </div>
 <div class='form-group'>
   <div class='float_btn'>
@@ -40,19 +39,19 @@ if ($row = mysqli_fetch_assoc($r_update))
 {
 ?>
 
-<form action="./edit.php?id=<?php echo $id; ?>" method="POST">
+<form action="./add.php?id=<?php echo $id; ?>" method="POST">
 	<LEGEND>Edit</LEGEND>
     <div class="form-group col-sm-6">
      <label for="CompanyName">Company Name</label>
-     <input value="<?php echo $row['CompanyName']; ?>" type="text" class="form-control" name="CompanyName" >    
+     <input type="text" class="form-control" name="CompanyName" >    
     </div>
 
     <div class="form-group col-sm-6">
      <label for="Adress">Adress</label>
-     <input value="<?php echo $row['Adress1']; ?>" type="text" class="form-control" name="Adress">   
+     <input type="text" class="form-control" name="Adress">   
     </div>
     <div class="form-group col-sm-12">
-     <input name="submit" type="submit" value="Bewerk" class="btn btn-primary">     
+     <input name="submit" type="submit" value="Add" class="btn btn-primary">     
     </div>   
       </form>
   <?php

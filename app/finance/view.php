@@ -22,9 +22,15 @@ if(isset($_GET['id']))
   </div>
 </div>
 <div class='form-group'>
+  <div class="float_left">
   <a class='btn btn-success' href='<?php echo "edit.php?id=$id" ?>'>Edit</a>
+  </div>
 </div>
-
+<div class='form-group'>
+  <div class="float_left">
+  <a class='btn btn-success' href='<?php echo "add.php?id=$id" ?>'>Add</a>
+  </div>
+</div>
  <table class='table table-striped'>
     <thead>
       <tr>
