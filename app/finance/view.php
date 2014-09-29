@@ -8,7 +8,7 @@ if($_SESSION['role'] != 1)
 if(isset($_GET['id']))
 {
 	$id = $_GET['id'];
-	$view = "SELECT * FROM customers WHERE  CustomerNR= '$id'";
+	$view = "SELECT * FROM invoices WHERE  CustomerNR= '$id'";
 	$r_view = mysqli_query($con, $view);
 }
 ?>
@@ -23,19 +23,19 @@ if(isset($_GET['id']))
 </div>
 <div class='form-group'>
   <div class="float_left">
-  <a class='btn btn-success' href='<?php echo "edit.php?id=$id" ?>'>Edit</a>
-  </div>
-</div>
-<div class='form-group'>
-  <div class="float_left">
   <a class='btn btn-success' href='<?php echo "add.php?id=$id" ?>'>Add</a>
   </div>
 </div>
  <table class='table table-striped'>
     <thead>
       <tr>
-        <td class="col-sm-2">Companyname</td>
-        <td class="col-sm-2">Adress</td>
+        <td class="col-sm-2">Invoiceduration</td>
+        <td class="col-sm-2">Quantity</td>
+        <td class="col-sm-2">Description</td>
+        <td class="col-sm-2">Price</td>
+        <td class="col-sm-2">BTW</td>
+        <td class="col-sm-2">Amount</td>
+        <td class="col-sm-2">Edit</td>
       </tr>
       </tr>
     </thead>
@@ -44,8 +44,13 @@ if(isset($_GET['id']))
       while ($row = mysqli_fetch_assoc($r_view)) 
         {
          echo '<tr>';
-         echo '<td>' . $row['CompanyName'] . '</td>';
-         echo '<td>' . $row['Adress1'] . '</td>';
+         echo '<td>' . $row['InvoiceDuration'] . '</td>';
+         echo '<td>' . $row['Quantity'] . '</td>';
+         echo '<td>' . $row['Description'] . '</td>';
+         echo '<td>' . $row['Price'] . '</td>';
+         echo '<td>' . $row['BTW'] . '</td>';
+         echo '<td>' . $row['Amount'] . '</td>';
+         echo '<td><a class="btn btn-success" href="edit.php?id='.$row['InvoiceNR'].'">Edit</a></td>'; 
          echo '</tr>';        
         }       
     ?>

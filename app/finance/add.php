@@ -8,12 +8,18 @@ if($_SESSION['role'] != 1)
 
 if (isset($_POST['submit'])) 
 {
+  // error_reporting(E_ALL ^ E_NOTICE);
   $id = $_GET['id'];
-  $CompanyName = mysqli_real_escape_string($con, $_POST['CompanyName']);
-  $Adress = mysqli_real_escape_string($con, $_POST['Adress']);
-  $query = "INSERT INTO customers (CompanyName, Adress1)
-                        VALUES    ('$CompanyName','$Adress')";
+  $InvoiceDuration = mysqli_real_escape_string($con, $_POST['InvoiceDuration']);
+  $Quantity = mysqli_real_escape_string($con, $_POST['Quantity']);
+  $Description = mysqli_real_escape_string($con, $_POST['Description']);
+  $Price = mysqli_real_escape_string($con, $_POST['Price']);
+  $BTW = mysqli_real_escape_string($con, $_POST['BTW']);
+  $Amount = mysqli_real_escape_string($con, $_POST['Amount']);
+  $query = "INSERT INTO invoices (CustomerNR, InvoiceDuration, Quantity, Description, Price, BTW, Amount)
+                        VALUES    ('$id','$InvoiceDuration','$Quantity','$Description','$Price', '$BTW', '$Amount')";
   $result = mysqli_query($con, $query);
+
     Header("location: ./view.php?id=".$id);  
       
 }
@@ -21,7 +27,7 @@ if (isset($_POST['submit']))
 if(isset($_GET['id']))
 {
 	$id = $_GET['id'];
-	$edit = "SELECT * FROM customers WHERE CustomerNR = '$id'";
+	$edit = "SELECT * FROM invoices WHERE CustomerNR = '$id'";
 	$r_edit = mysqli_query($con, $edit);
 }
 ?>
@@ -34,30 +40,37 @@ if(isset($_GET['id']))
   </div>
 </div>
 
-<?php
-if ($row = mysqli_fetch_assoc($r_update)) 
-{
-?>
-
 <form action="./add.php?id=<?php echo $id; ?>" method="POST">
-	<LEGEND>Edit</LEGEND>
+	<LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
-     <label for="CompanyName">Company Name</label>
-     <input type="text" class="form-control" name="CompanyName" >    
+     <label for="InvoiceDuration">Invoiceduration</label>
+     <input type="text" class="form-control" name="InvoiceDuration" >    
     </div>
 
     <div class="form-group col-sm-6">
-     <label for="Adress">Adress</label>
-     <input type="text" class="form-control" name="Adress">   
+     <label for="Quantity">Quantity</label>
+     <input type="text" class="form-control" name="Quantity">   
+    </div>
+    <div class="form-group col-sm-6">
+     <label for="Description">Description</label>
+     <input type="text" class="form-control" name="Description" >    
+    </div>
+    <div class="form-group col-sm-6">
+     <label for="Price">Price</label>
+     <input type="text" class="form-control" name="Price" >    
+    </div>
+    <div class="form-group col-sm-6">
+     <label for="BTW">BTW</label>
+     <input type="text" class="form-control" name="BTW">   
+    </div>
+     <div class="form-group col-sm-6">
+     <label for="Amount">Amount</label>
+     <input type="text" class="form-control" name="Amount">   
     </div>
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
     </div>   
       </form>
-  <?php
-	}
-  ?>
-
 
 
 

@@ -11,20 +11,22 @@ if($_SESSION['role'] != 1)
 if (isset($_POST['submit'])) 
 {
 	$id = $_GET['id'];
-	$CompanyName = mysqli_real_escape_string($con, $_POST['CompanyName']);
-	$Adress = mysqli_real_escape_string($con, $_POST['Adress']);
-	$query = "UPDATE customers SET CompanyName = '$CompanyName', Adress1 = '$Adress' WHERE CustomerNR = '$id' LIMIT 1";
+	$InvoiceDuration = mysqli_real_escape_string($con, $_POST['InvoiceDuration']);
+	$Quantity = mysqli_real_escape_string($con, $_POST['Quantity']);
+	$query = "UPDATE invoices SET InvoiceDuration = '$InvoiceDuration', Quantity = '$Quantity' WHERE InvoiceNR = '$id' LIMIT 1";
 	$result = mysqli_query($con, $query);
-    Header("location: ./view.php?id=".$id);  
+
+  //MOET NOG GEFIXT WORDEN MAKKELIJKE MANIER 
+    Header("location: ./index.php");  
       
 }
 
 if(isset($_GET['id']))
 {
-	$id = $_GET['id'];
-	$edit = "SELECT * FROM customers WHERE CustomerNR = '$id'";
-	$r_edit = mysqli_query($con, $edit);
-}
+  $id = $_GET['id'];
+
+$update = "SELECT * FROM Invoices WHERE InvoiceNR = '$id' ";
+$r_update = mysqli_query($con,$update);}
 ?>
 <div class="panel-text">
     <h1>Finance panel: Edit</h1>
@@ -40,16 +42,16 @@ if ($row = mysqli_fetch_assoc($r_update))
 {
 ?>
 
-<form action="./edit.php?id=<?php echo $id; ?>" method="POST">
+<form action="" method="POST">
 	<LEGEND>Edit</LEGEND>
     <div class="form-group col-sm-6">
-     <label for="CompanyName">Company Name</label>
-     <input value="<?php echo $row['CompanyName']; ?>" type="text" class="form-control" name="CompanyName" >    
+     <label for="InvoiceDuration">Invoiceduration</label>
+     <input value="<?php echo $row['InvoiceDuration']; ?>" type="text" class="form-control" name="InvoiceDuration" >    
     </div>
 
     <div class="form-group col-sm-6">
-     <label for="Adress">Adress</label>
-     <input value="<?php echo $row['Adress1']; ?>" type="text" class="form-control" name="Adress">   
+     <label for="Quantity">Quantity</label>
+     <input value="<?php echo $row['Quantity']; ?>" type="text" class="form-control" name="Quantity">   
     </div>
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Bewerk" class="btn btn-primary">     
@@ -63,6 +65,6 @@ if ($row = mysqli_fetch_assoc($r_update))
 
 
 <div class='form-group'>
-  <a class='btn btn-default' href='<?php echo "view.php?id=$id" ?>'>Back</a>
+  <a class='btn btn-default' href='index.php'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>
