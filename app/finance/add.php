@@ -9,7 +9,7 @@ if($_SESSION['role'] != 1)
 if (isset($_POST['submit'])) 
 {
   // error_reporting(E_ALL ^ E_NOTICE);
-  $id = $_GET['id'];
+  $id = $_GET['cid'];
   $InvoiceDuration = mysqli_real_escape_string($con, $_POST['InvoiceDuration']);
   $Quantity = mysqli_real_escape_string($con, $_POST['Quantity']);
   $Description = mysqli_real_escape_string($con, $_POST['Description']);
@@ -20,13 +20,13 @@ if (isset($_POST['submit']))
                         VALUES    ('$id','$InvoiceDuration','$Quantity','$Description','$Price', '$BTW', '$Amount', 1)";
   $result = mysqli_query($con, $query);
 
-    Header("location: ./activate.php?id=".$id);  
+    Header("location: ./index.php");  
       
 }
 
-if(isset($_GET['id']))
+if(isset($_GET['cid']))
 {
-	$id = $_GET['id'];
+	$id = $_GET['cid'];
 	$edit = "SELECT * FROM invoices WHERE CustomerNR = '$id'";
 	$r_edit = mysqli_query($con, $edit);
 }
@@ -40,7 +40,7 @@ if(isset($_GET['id']))
   </div>
 </div>
 
-<form action="./add.php?id=<?php echo $id; ?>" method="POST">
+<form action="./add.php?cid=<?php echo $id; ?>" method="POST">
 	<LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
      <label for="InvoiceDuration">Invoiceduration</label>
@@ -75,6 +75,6 @@ if(isset($_GET['id']))
 
 
 <div class='form-group'>
-  <a class='btn btn-default' href='<?php echo "activate.php?id=$id" ?>'>Back</a>
+  <a class='btn btn-default' href='index.php'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>

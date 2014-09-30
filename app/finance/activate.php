@@ -11,9 +11,6 @@ if(isset($_GET['cid']))
 	$view = "SELECT * FROM invoices WHERE  CustomerNR= '$id' AND Status = 1";
 	$r_view = mysqli_query($con, $view);
 }
-/*if(isset($_GET['id'])){
-  echo 'hallo';
-}*/
 ?>
 
 <div class="panel-text">
@@ -26,7 +23,7 @@ if(isset($_GET['cid']))
 </div>
 <div class='form-group'>
   <div class="float_left">
-  <a class='btn btn-success' href='<?php echo "add.php?id=$id" ?>'>Add</a>
+  <a class='btn btn-success' href='<?php echo "add.php?cid=$id" ?>'>Add</a>
   </div>
 </div>
  <table class='table table-striped'>
@@ -54,7 +51,7 @@ if(isset($_GET['cid']))
          echo '<td>' . $row['Price'] . '</td>';
          echo '<td>' . $row['BTW'] . '</td>';
          echo '<td>' . $row['Amount'] . '</td>';
-         echo '<td><a class="btn btn-success" href="edit.php?aid='.$row['InvoiceNR'].'">Edit</a></td>'; 
+         echo '<td><a class="btn btn-success" href="edit.php?cid='.$row['InvoiceNR'].'">Edit</a></td>'; 
          echo '<td><a class="btn btn-warning" href="../controllers/invoiceController.php?aid='.$row['InvoiceNR'].'">Deactivate</a></td>'; 
          echo '</tr>';        
         }       

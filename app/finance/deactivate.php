@@ -11,9 +11,6 @@ if(isset($_GET['cid']))
   $view = "SELECT * FROM invoices WHERE  CustomerNR= '$id' AND Status = 0";
   $r_view = mysqli_query($con, $view);
 }
-/*if(isset($_GET['id'])){
-  echo 'hallo';
-}*/
 ?>
 
 <div class="panel-text">

@@ -10,7 +10,7 @@ if($_SESSION['role'] != 1)
 
 if (isset($_POST['submit'])) 
 {
-	$id = $_GET['id'];
+	$id = $_GET['cid'];
 	$InvoiceDuration = mysqli_real_escape_string($con, $_POST['InvoiceDuration']);
 	$Quantity = mysqli_real_escape_string($con, $_POST['Quantity']);
   $Description = mysqli_real_escape_string($con, $_POST['Description']);
@@ -31,9 +31,9 @@ if (isset($_POST['submit']))
       
 }
 
-if(isset($_GET['id']))
+if(isset($_GET['cid']))
 {
-  $id = $_GET['id'];
+  $id = $_GET['cid'];
   $update = "SELECT * FROM Invoices WHERE InvoiceNR = '$id' ";
   $r_update = mysqli_query($con,$update);}
 ?>
@@ -92,6 +92,6 @@ if ($row = mysqli_fetch_assoc($r_update))
   ?>
 
 <div class='form-group'>
-  <a class='btn btn-default' href='index.php'>Back</a>
+  <a class='btn btn-default' href='index.php'>'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>
