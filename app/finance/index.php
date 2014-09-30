@@ -5,6 +5,8 @@ if($_SESSION['role'] != 1)
 {
 	header('location: ../index.php');
 }
+
+
 ?>
 
 <div class="panel-text">
@@ -22,6 +24,8 @@ if($_SESSION['role'] != 1)
 			<tr>
 				<td class="col-sm-2">Companyname</td>
 				<td class="col-sm-2">Adress</td>
+				<td class="col-sm-2">Activated invoices</td>
+				<td class="col-sm-2">Deactivated invoices</td>
 			</tr>
 			</tr>
 		</thead>
@@ -32,7 +36,8 @@ if($_SESSION['role'] != 1)
          echo '<tr>';
          echo '<td>' . $row['CompanyName'] . '</td>';
          echo '<td>' . $row['Adress1'] . '</td>';
-         echo '<td> <a href="view.php?id=' . $row['CustomerNR'] . '"</a> View </td>';
+         echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+         echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
          echo '</tr>';        
         }       
 		?>

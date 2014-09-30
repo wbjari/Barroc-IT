@@ -16,11 +16,11 @@ if (isset($_POST['submit']))
   $Price = mysqli_real_escape_string($con, $_POST['Price']);
   $BTW = mysqli_real_escape_string($con, $_POST['BTW']);
   $Amount = mysqli_real_escape_string($con, $_POST['Amount']);
-  $query = "INSERT INTO invoices (CustomerNR, InvoiceDuration, Quantity, Description, Price, BTW, Amount)
-                        VALUES    ('$id','$InvoiceDuration','$Quantity','$Description','$Price', '$BTW', '$Amount')";
+  $query = "INSERT INTO invoices (CustomerNR, InvoiceDuration, Quantity, Description, Price, BTW, Amount, Status)
+                        VALUES    ('$id','$InvoiceDuration','$Quantity','$Description','$Price', '$BTW', '$Amount', 1)";
   $result = mysqli_query($con, $query);
 
-    Header("location: ./view.php?id=".$id);  
+    Header("location: ./activate.php?id=".$id);  
       
 }
 
@@ -75,6 +75,6 @@ if(isset($_GET['id']))
 
 
 <div class='form-group'>
-  <a class='btn btn-default' href='<?php echo "view.php?id=$id" ?>'>Back</a>
+  <a class='btn btn-default' href='<?php echo "activate.php?id=$id" ?>'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>

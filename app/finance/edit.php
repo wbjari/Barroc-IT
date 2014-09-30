@@ -27,15 +27,15 @@ if (isset($_POST['submit']))
 	$result = mysqli_query($con, $query);
 
   //MOET NOG GEFIXT WORDEN MAKKELIJKE MANIER 
-    Header("location: ./index.php");  
+    header("location: ./index.php");  
       
 }
 
 if(isset($_GET['id']))
 {
-$id = $_GET['id'];
-$update = "SELECT * FROM Invoices WHERE InvoiceNR = '$id' ";
-$r_update = mysqli_query($con,$update);}
+  $id = $_GET['id'];
+  $update = "SELECT * FROM Invoices WHERE InvoiceNR = '$id' ";
+  $r_update = mysqli_query($con,$update);}
 ?>
 <div class="panel-text">
     <h1>Finance panel: Edit</h1>
@@ -90,9 +90,6 @@ if ($row = mysqli_fetch_assoc($r_update))
   <?php
 	}
   ?>
-
-
-
 
 <div class='form-group'>
   <a class='btn btn-default' href='index.php'>Back</a>

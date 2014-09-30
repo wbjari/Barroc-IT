@@ -5,16 +5,19 @@ if($_SESSION['role'] != 1)
 {
 	header('location: ../index.php');
 }
-if(isset($_GET['id']))
+if(isset($_GET['cid']))
 {
-	$id = $_GET['id'];
-	$view = "SELECT * FROM invoices WHERE  CustomerNR= '$id'";
+	$id = $_GET['cid'];
+	$view = "SELECT * FROM invoices WHERE  CustomerNR= '$id' AND Status = 1";
 	$r_view = mysqli_query($con, $view);
 }
+/*if(isset($_GET['id'])){
+  echo 'hallo';
+}*/
 ?>
 
 <div class="panel-text">
-    <h1>Finance panel: View</h1>
+    <h1>Finance panel: Activated</h1>
 </div>
 <div class='form-group'>
   <div class='float_btn'>
@@ -36,6 +39,7 @@ if(isset($_GET['id']))
         <td class="col-sm-2">BTW</td>
         <td class="col-sm-2">Amount</td>
         <td class="col-sm-2">Edit</td>
+        <td class="col-sm-2">Deactivate</td>
       </tr>
       </tr>
     </thead>
@@ -50,7 +54,8 @@ if(isset($_GET['id']))
          echo '<td>' . $row['Price'] . '</td>';
          echo '<td>' . $row['BTW'] . '</td>';
          echo '<td>' . $row['Amount'] . '</td>';
-         echo '<td><a class="btn btn-success" href="edit.php?id='.$row['InvoiceNR'].'">Edit</a></td>'; 
+         echo '<td><a class="btn btn-success" href="edit.php?aid='.$row['InvoiceNR'].'">Edit</a></td>'; 
+         echo '<td><a class="btn btn-warning" href="../controllers/invoiceController.php?aid='.$row['InvoiceNR'].'">Deactivate</a></td>'; 
          echo '</tr>';        
         }       
     ?>
