@@ -8,7 +8,7 @@ if($_SESSION['role'] != 3)
 if(isset($_GET['id']))
 {
   $id = $_GET['id'];
-  $view = "SELECT * FROM sales WHERE id = '$id'";
+  $view = "SELECT * FROM customers WHERE CustomerNR = '$id'";
   $r_view = mysqli_query($con, $view);
 }
 ?>
@@ -42,8 +42,8 @@ if(isset($_GET['id']))
       while ($row = mysqli_fetch_assoc($r_view)) 
         {
          echo '<tr>';
-         echo '<td>' . $row['companyname'] . '</td>';
-         echo '<td>' . $row['contactperson'] . '</td>';
+         echo '<td>' . $row['CompanyName'] . '</td>';
+         echo '<td>' . $row['ContactPerson'] . '</td>';
          echo '</tr>';        
         }       
     ?>

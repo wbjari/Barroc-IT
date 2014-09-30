@@ -8,7 +8,7 @@ if($_SESSION['role'] != 3)
 if(isset($_GET['id']))
 {
 	$id = $_GET['id'];
-	$edit = "SELECT * FROM sales WHERE id = '$id'";
+	$edit = "SELECT * FROM customers WHERE CustomerNR = '$id'";
 	$r_edit = mysqli_query($con, $edit);
 }
 ?>
