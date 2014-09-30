@@ -1,63 +1,76 @@
-<?php 	require '../templates/header.php';
-		require '../controllers/invoiceController.php';
+<?php   require '../templates/header.php';
+    require '../controllers/projectsController.php';
 
-if($_SESSION['role'] != 1)
+if($_SESSION['role'] != 2)
 {
-	header('location: ../index.php');
+  header('location: ../index.php');
 }
 
 if (isset($_POST['submit'])) 
 {
+  // error_reporting(E_ALL ^ E_NOTICE);
   $id = $_GET['id'];
-  $CompanyName = mysqli_real_escape_string($con, $_POST['CompanyName']);
-  $Adress = mysqli_real_escape_string($con, $_POST['Adress']);
-  $query = "INSERT INTO customers (CompanyName, Adress1)
-                        VALUES    ('$CompanyName','$Adress')";
+  $ProjectName = mysqli_real_escape_string($con, $_POST['ProjectName']);
+  $MaintenanceContract = mysqli_real_escape_string($con, $_POST['MaintenanceContract']);
+  $Hardware = mysqli_real_escape_string($con, $_POST['Hardware']);
+  $Software = mysqli_real_escape_string($con, $_POST['Software']);
+  $Appointments = mysqli_real_escape_string($con, $_POST['Appointments']);
+  $StatusProject = mysqli_real_escape_string($con, $_POST['StatusProject']);
+  $query = "INSERT INTO projects (CustomerNR, ProjectName, MaintenanceContract, Hardware, Software, Appointments, StatusProject)
+                        VALUES    ('$id','$ProjectName','$MaintenanceContract','$Hardware','$Software', '$Appointments', '$StatusProject')";
   $result = mysqli_query($con, $query);
-    Header("location: ./view.php?id=".$id);  
+
+    header("location: view.php?id=".$id);  
       
 }
 
 if(isset($_GET['id']))
 {
-	$id = $_GET['id'];
-	$edit = "SELECT * FROM customers WHERE CustomerNR = '$id'";
-	$r_edit = mysqli_query($con, $edit);
+  $id = $_GET['id'];
+  $edit = "SELECT * FROM projects WHERE CustomerNR = '$id'";
+  $r_edit = mysqli_query($con, $edit);
 }
 ?>
 <div class="panel-text">
-    <h1>Finance panel: Add</h1>
+    <h1>Development panel: Add</h1>
 </div>
 <div class='form-group'>
   <div class='float_btn'>
-	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+  <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
 </div>
 
-<?php
-if ($row = mysqli_fetch_assoc($r_update)) 
-{
-?>
-
-<form action="./add.php?id=<?php echo $id; ?>" method="POST">
-	<LEGEND>Edit</LEGEND>
+<form action="add.php?id=<?php echo $id; ?>" method="POST">
+  <LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
-     <label for="CompanyName">Company Name</label>
-     <input type="text" class="form-control" name="CompanyName" >    
+     <label for="ProjectName">ProjectName</label>
+     <input type="text" class="form-control" name="ProjectName" >    
     </div>
 
     <div class="form-group col-sm-6">
-     <label for="Adress">Adress</label>
-     <input type="text" class="form-control" name="Adress">   
+     <label for="MaintenanceContract">MaintenanceContract</label>
+     <input type="text" class="form-control" name="MaintenanceContract">   
+    </div>
+    <div class="form-group col-sm-6">
+     <label for="Hardware">Hardware</label>
+     <input type="text" class="form-control" name="Hardware" >    
+    </div>
+    <div class="form-group col-sm-6">
+     <label for="Software">Software</label>
+     <input type="text" class="form-control" name="Software" >    
+    </div>
+    <div class="form-group col-sm-6">
+     <label for="Appointments">Appointments</label>
+     <input type="text" class="form-control" name="Appointments">   
+    </div>
+     <div class="form-group col-sm-6">
+     <label for="StatusProject">StatusProject</label>
+     <input type="text" class="form-control" name="StatusProject">   
     </div>
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
     </div>   
       </form>
-  <?php
-	}
-  ?>
-
 
 
 
