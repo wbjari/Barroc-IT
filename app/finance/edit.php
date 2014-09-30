@@ -13,7 +13,17 @@ if (isset($_POST['submit']))
 	$id = $_GET['id'];
 	$InvoiceDuration = mysqli_real_escape_string($con, $_POST['InvoiceDuration']);
 	$Quantity = mysqli_real_escape_string($con, $_POST['Quantity']);
-	$query = "UPDATE invoices SET InvoiceDuration = '$InvoiceDuration', Quantity = '$Quantity' WHERE InvoiceNR = '$id' LIMIT 1";
+  $Description = mysqli_real_escape_string($con, $_POST['Description']);
+  $Price = mysqli_real_escape_string($con, $_POST['Price']);
+  $BTW = mysqli_real_escape_string($con, $_POST['BTW']);
+  $Amount = mysqli_real_escape_string($con, $_POST['Amount']);
+	$query = "UPDATE invoices SET InvoiceDuration = '$InvoiceDuration', 
+                                Quantity = '$Quantity', 
+                                Description = '$Description',  
+                                Price = '$Price', 
+                                BTW = '$BTW',
+                                Amount = '$Amount'
+                                WHERE InvoiceNR = '$id' LIMIT 1";
 	$result = mysqli_query($con, $query);
 
   //MOET NOG GEFIXT WORDEN MAKKELIJKE MANIER 
@@ -23,8 +33,7 @@ if (isset($_POST['submit']))
 
 if(isset($_GET['id']))
 {
-  $id = $_GET['id'];
-
+$id = $_GET['id'];
 $update = "SELECT * FROM Invoices WHERE InvoiceNR = '$id' ";
 $r_update = mysqli_query($con,$update);}
 ?>
@@ -53,6 +62,27 @@ if ($row = mysqli_fetch_assoc($r_update))
      <label for="Quantity">Quantity</label>
      <input value="<?php echo $row['Quantity']; ?>" type="text" class="form-control" name="Quantity">   
     </div>
+
+    <div class="form-group col-sm-6">
+     <label for="Description">Description</label>
+     <input value="<?php echo $row['Description']; ?>" type="text" class="form-control" name="Description" >    
+    </div>
+
+    <div class="form-group col-sm-6">
+     <label for="Price">Price</label>
+     <input value="<?php echo $row['Price']; ?>" type="text" class="form-control" name="Price">   
+    </div>
+
+    <div class="form-group col-sm-6">
+     <label for="BTW">BTW</label>
+     <input value="<?php echo $row['BTW']; ?>" type="text" class="form-control" name="BTW" >    
+    </div>
+
+    <div class="form-group col-sm-6">
+     <label for="Amount">Amount</label>
+     <input value="<?php echo $row['Amount']; ?>" type="text" class="form-control" name="Amount">   
+    </div>
+
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Bewerk" class="btn btn-primary">     
     </div>   
