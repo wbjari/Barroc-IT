@@ -30,13 +30,6 @@ if (isset($_POST['submit']))
     Header("location: ./index.php");  
       
 }
-
-if(isset($_GET['cid']))
-{
-  $id = $_GET['cid'];
-  $edit = "SELECT * FROM invoices WHERE CustomerNR = '$id'";
-  $r_edit = mysqli_query($con, $edit);
-}
 if(isset($_GET['cid']))
 {
   $id = $_GET['cid'];
