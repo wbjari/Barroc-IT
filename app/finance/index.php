@@ -38,6 +38,7 @@ if($_SESSION['role'] != 1)
 				<td class="col-sm-2">BKR</td>
 				<td class="col-sm-2">Activated invoices</td>
 				<td class="col-sm-2">Deactivated invoices</td>
+				<td class="col-sm-2">Edit</td>
 			</tr>
 			</tr>
 		</thead>
@@ -56,6 +57,7 @@ if($_SESSION['role'] != 1)
          echo '<td>' . $row['BKR'] . '</td>';
          echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
          echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+         echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
          echo '</tr>';        
         }       
 		?>
