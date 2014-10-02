@@ -92,6 +92,6 @@ if ($row = mysqli_fetch_assoc($r_update))
   ?>
 
 <div class='form-group'>
-  <a class='btn btn-default' href='index.php'>'>Back</a>
+  <a class='btn btn-default' href='index.php'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>
