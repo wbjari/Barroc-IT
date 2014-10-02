@@ -1,5 +1,5 @@
 <?php 	require '../templates/header.php';
-		require '../controllers/salesController.php';
+		    require '../controllers/salesController.php';
 
 if($_SESSION['role'] != 3)
 {
