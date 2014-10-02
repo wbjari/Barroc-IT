@@ -1,5 +1,5 @@
 <?php 	require '../templates/header.php';
-		require '../controllers/invoiceController.php';
+		require '../controllers/projectsController.php';
 
 if($_SESSION['role'] != 2)
 {
@@ -10,7 +10,7 @@ if($_SESSION['role'] != 2)
 
 if (isset($_POST['submit'])) 
 {
-	$id = $_GET['id'];
+	$id = $_GET['cid'];
 	$ProjectName = mysqli_real_escape_string($con, $_POST['ProjectName']);
 	$MaintenanceContract = mysqli_real_escape_string($con, $_POST['MaintenanceContract']);
   	$Hardware = mysqli_real_escape_string($con, $_POST['Hardware']);
@@ -31,9 +31,9 @@ if (isset($_POST['submit']))
       
 }
 
-if(isset($_GET['id']))
+if(isset($_GET['cid']))
 {
-$id = $_GET['id'];
+$id = $_GET['cid'];
 $update = "SELECT * FROM projects WHERE ProjectNR = '$id' ";
 $r_update = mysqli_query($con,$update);}
 ?>

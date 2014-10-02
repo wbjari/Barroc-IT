@@ -9,24 +9,23 @@ if($_SESSION['role'] != 2)
 if (isset($_POST['submit'])) 
 {
   // error_reporting(E_ALL ^ E_NOTICE);
-  $id = $_GET['id'];
+  $id = $_GET['cid'];
   $ProjectName = mysqli_real_escape_string($con, $_POST['ProjectName']);
   $MaintenanceContract = mysqli_real_escape_string($con, $_POST['MaintenanceContract']);
   $Hardware = mysqli_real_escape_string($con, $_POST['Hardware']);
   $Software = mysqli_real_escape_string($con, $_POST['Software']);
   $Appointments = mysqli_real_escape_string($con, $_POST['Appointments']);
-  $StatusProject = mysqli_real_escape_string($con, $_POST['StatusProject']);
-  $query = "INSERT INTO projects (CustomerNR, ProjectName, MaintenanceContract, Hardware, Software, Appointments, StatusProject)
-                        VALUES    ('$id','$ProjectName','$MaintenanceContract','$Hardware','$Software', '$Appointments', '$StatusProject')";
+  $query = "INSERT INTO projects (CustomerNR, ProjectName, MaintenanceContract, Hardware, Software, Appointments)
+                        VALUES    ('$id','$ProjectName','$MaintenanceContract','$Hardware','$Software', '$Appointments')";
   $result = mysqli_query($con, $query);
 
     header("location: view.php?id=".$id);  
       
 }
 
-if(isset($_GET['id']))
+if(isset($_GET['cid']))
 {
-  $id = $_GET['id'];
+  $id = $_GET['cid'];
   $edit = "SELECT * FROM projects WHERE CustomerNR = '$id'";
   $r_edit = mysqli_query($con, $edit);
 }
@@ -40,7 +39,7 @@ if(isset($_GET['id']))
   </div>
 </div>
 
-<form action="add.php?id=<?php echo $id; ?>" method="POST">
+<form action="add.php?cid=<?php echo $id; ?>" method="POST">
   <LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
      <label for="ProjectName">ProjectName</label>
@@ -63,10 +62,6 @@ if(isset($_GET['id']))
      <label for="Appointments">Appointments</label>
      <input type="text" class="form-control" name="Appointments">   
     </div>
-     <div class="form-group col-sm-6">
-     <label for="StatusProject">StatusProject</label>
-     <input type="text" class="form-control" name="StatusProject">   
-    </div>
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
     </div>   
@@ -75,6 +70,6 @@ if(isset($_GET['id']))
 
 
 <div class='form-group'>
-  <a class='btn btn-default' href='<?php echo "view.php?id=$id" ?>'>Back</a>
+  <a class='btn btn-default' href='<?php echo "index.php?id=$id" ?>'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>
