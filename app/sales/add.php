@@ -8,7 +8,7 @@ if($_SESSION['role'] != 3)
 
 if (isset($_POST['submit'])) 
 {
-  $id = $_GET['id'];
+  // error_reporting(E_ALL ^ E_NOTICE);
   $companyName        = mysqli_real_escape_string($con, $_POST['CompanyName']);
   $adress1            = mysqli_real_escape_string($con, $_POST['Adress1']);
   $zipcode1           = mysqli_real_escape_string($con, $_POST['Zipcode1']);
@@ -33,18 +33,18 @@ if (isset($_POST['submit']))
   $query = "INSERT INTO customers (CompanyName, Adress1, ZipCode1, Residence1, Adress2, Zipcode2, Residence2, ContactPerson, Initials, 
                                   TelephoneNumber1, TelephoneNumber2, FaxNumber, Email, OfferNumbers, OfferStatus, Prospect, DateOfAction, 
                                   LastContactDate, NextAction, SalePercentage, CreditWorthy)
-                        VALUES    ('$companyName','$adress1', '$zipCode1', '$residence1', '$adress2', '$zipcode2', '$residence2', '$contactPerson', 
+                        VALUES    ('$companyName','$adress1', '$zipcode1', '$residence1', '$adress2', '$zipcode2', '$residence2', '$contactPerson', 
                                   '$initials', '$telephoneNumber1', '$telephoneNumber2', '$faxNumber', '$email', '$offerNumbers', '$offerStatus', 
-                                  '$prospect', 'dateOfAction', '$lastContactDate', '$nextAction', '$salePercentage', '$creditWorthy')";
+                                  '$prospect', '$dateOfAction', '$lastContactDate', '$nextAction', '$salePercentage', '$creditWorthy')";
   $result = mysqli_query($con, $query);
 
     header("location: ./view.php?id=".$id);  
       
 }
 
-if(isset($_GET['id']))
+if(isset($_GET['cid']))
 {
-  $id = $_GET['id'];
+  $id = $_GET['cid'];
   $edit = "SELECT * FROM customers WHERE CustomerNR = '$id'";
   $r_edit = mysqli_query($con, $edit);
 }
@@ -58,7 +58,7 @@ if(isset($_GET['id']))
   </div>
 </div>
 
-<form action="./add.php?id=<?php echo $id; ?>" method="POST">
+<form action="./add.php" method="POST">
   <LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
      <label for="CompanyName">Company name*</label>
@@ -161,12 +161,13 @@ if(isset($_GET['id']))
     </div>
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
-    </div>  
+    </div>   
       </form>
 
 
 
 <div class='form-group'>
-  <a class='btn btn-default' href='<?php echo "view.php?id=$id" ?>'>Back</a>
+  <a class='btn btn-default' href='index.php'>Back</a>
 </div>
+
 <?php require'../templates/footer.php';?>
