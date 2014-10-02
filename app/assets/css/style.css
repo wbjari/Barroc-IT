@@ -45,10 +45,12 @@
 	margin: 5px;
 }
 
+/* Add form customer */
 
 
-
-
+.radio {
+	display: inline-block;
+}
 
 
 
