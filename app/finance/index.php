@@ -7,6 +7,11 @@ if($_SESSION['role'] != 1)
 }
 
 
+/*if(isset($_GET['cid']))
+{
+  $id = $_GET['cid'];
+
+}*/
 ?>
 
 
@@ -21,17 +26,12 @@ if($_SESSION['role'] != 1)
 					<input id="search-button" type="submit" value="Search" class="btn btn-primary">
 				</form>
 
-<!-- <ul class="list-unstyled">
-<li><a href="invoices.php">Invoices</a></li>
-<li><a href="customers.php">Customers</a></li>
-</ul> -->
 <table class='table table-striped'>
 		<thead>
 			<tr>
 				<td class="col-sm-2">Companyname</td>
 				<td class="col-sm-2">Bank account number</td>
 				<td class="col-sm-2">Credit</td>
-				<td class="col-sm-2">Number of invoices</td>
 				<td class="col-sm-2">Revenue amount</td>
 				<td class="col-sm-2">Limit</td>
 				<td class="col-sm-2">Ledger account</td>
@@ -39,18 +39,19 @@ if($_SESSION['role'] != 1)
 				<td class="col-sm-2">Activated invoices</td>
 				<td class="col-sm-2">Deactivated invoices</td>
 				<td class="col-sm-2">Edit</td>
-			</tr>
+				<td class="col-sm-2">Invoice number</td>
+				
+
 			</tr>
 		</thead>
 		<tbody>
 		<?php
-		  while ($row = mysqli_fetch_assoc($r_invoices)) 
+		  while ($row = mysqli_fetch_assoc($r_invoices) /*&& $i < 100*/) 
         {
          echo '<tr>';
          echo '<td>' . $row['CompanyName'] . '</td>';
          echo '<td>' . $row['BankaccountNr'] . '</td>';
          echo '<td>' . $row['Credit'] . '</td>';
-         echo '<td>' . $row['NumberOfInvoices'] . '</td>';
          echo '<td>' . $row['RevenueAmount'] . '</td>';
          echo '<td>' . $row['Limit'] . '</td>';
          echo '<td>' . $row['LedgerAccount'] . '</td>';
@@ -58,9 +59,23 @@ if($_SESSION['role'] != 1)
          echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
          echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
          echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
-         echo '</tr>';        
-        }       
+         
+		$count = "SELECT COUNT(InvoiceNR) FROM invoices WHERE CustomerNR = '$i'";
+		$r_count = mysqli_query($con, $count); 
+		$i++;
+
+			while($rows = mysqli_fetch_assoc($r_count))
+				{
+					$separater = implode(",", $rows);
+					echo '<td>' . $separater . '</td>';
+				}
+         echo '</tr>';  
+        }   
 		?>
+
+
+         
+     
 		</tbody>
 </table>
 

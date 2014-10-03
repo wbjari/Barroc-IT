@@ -76,7 +76,7 @@ if ($row = mysqli_fetch_assoc($r_update))
     </div>
 
     <div class="form-group col-sm-6">
-     <input name="submit" type="submit" value="Edit" class="btn btn-primary">     
+     <input name="submit" type="submit" value="Save" class="btn btn-primary">     
     </div>   
       </form>
   <?php

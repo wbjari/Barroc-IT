@@ -1,11 +1,10 @@
 <?php 	require '../../config/config.php';?>
 <?php
 
-$invoices = 'SELECT * FROM customers';
+$i=1;
+$invoices = 'SELECT * FROM customers ';
 $r_invoices = mysqli_query($con, $invoices);
-
-
-
+  
 if(isset($_GET['aid'])){
 
 	$id = $_GET['aid'];
