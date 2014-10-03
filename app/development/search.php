@@ -40,20 +40,17 @@ $query= "SELECT * FROM projects WHERE";
 			$row = mysqli_num_rows($result);
 			
 			if($row > 0){
-
 				while($row = mysqli_fetch_assoc($result)){ 
-					 echo '<tr>';
-			         echo '<td>' . $row['ProjectName'] . '</td>';
-			         echo '<td>' . $row['MaintenanceContract'] . '</td>';
-			         echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['ProjectNR'] . '"</a> View </td>';
-			         echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['ProjectNR'] . '"</a> View </td>';
-			         echo '</tr>';        
-							}
-					}
+					echo '<tr>';
+			        echo '<td>' . $row['ProjectName'] . '</td>';
+			        echo '<td>' . $row['MaintenanceContract'] . '</td>';
+			        echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['ProjectNR'] . '"</a> View </td>';
+			        echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['ProjectNR'] . '"</a> View </td>';
+			        echo '</tr>';        
+				}	
 			}
-	
-							
-						?>
+		}							
+		?>
 		</tbody>
 </table>
 <div class='form-group'>

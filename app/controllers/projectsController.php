@@ -4,6 +4,11 @@
 $projects = 'SELECT * FROM projects';
 $r_projects = mysqli_query($con, $projects);
 
+$customers = 'SELECT * FROM customers';
+$r_customers = mysqli_query($con, $customers);
+
+$i = 1;
+
 if(isset($_GET['aid'])){
 
 	$id = $_GET['aid'];
