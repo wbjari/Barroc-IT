@@ -5,13 +5,6 @@ if($_SESSION['role'] != 1)
 {
 	header('location: ../index.php');
 }
-
-
-/*if(isset($_GET['cid']))
-{
-  $id = $_GET['cid'];
-
-}*/
 ?>
 
 
@@ -46,7 +39,7 @@ if($_SESSION['role'] != 1)
 		</thead>
 		<tbody>
 		<?php
-		  while ($row = mysqli_fetch_assoc($r_invoices) /*&& $i < 100*/) 
+		  while ($row = mysqli_fetch_assoc($r_invoices)) 
         {
          echo '<tr>';
          echo '<td>' . $row['CompanyName'] . '</td>';
@@ -66,7 +59,7 @@ if($_SESSION['role'] != 1)
 
 			while($rows = mysqli_fetch_assoc($r_count))
 				{
-					$separater = implode(",", $rows);
+					$separater = implode("", $rows);
 					echo '<td>' . $separater . '</td>';
 				}
          echo '</tr>';  
