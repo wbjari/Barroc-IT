@@ -19,7 +19,7 @@ if (isset($_POST['submit']))
                         VALUES    ('$id','$ProjectName','$MaintenanceContract','$Hardware','$Software', '$Appointments')";
   $result = mysqli_query($con, $query);
 
-    header("location: view.php?id=".$id);  
+    header("location: index.php?id=".$id);  
       
 }
 
