@@ -5,6 +5,7 @@ $invoices = 'SELECT * FROM customers';
 $r_invoices = mysqli_query($con, $invoices);
 
 
+
 if(isset($_GET['aid'])){
 
 	$id = $_GET['aid'];
