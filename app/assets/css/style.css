@@ -35,10 +35,12 @@
 }
 .float_btn{
 	float: right;
+	margin-bottom:10px;
 }
 
 .button_add {
 	float:left;
+	margin-bottom:10px;
 }
 .float_left{
 	float:left;

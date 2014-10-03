@@ -7,6 +7,8 @@ if(isset($_GET['id'])){
 
 	$query=mysqli_query($con, "SELECT * FROM customers WHERE CustomerNR = '$id'");
 	while($row = mysqli_fetch_assoc($query)){
+    echo "<a class='btn btn-primary' href=edit.php?cid=" . $row['CustomerNR'] . ">Edit</a>";
+  
 		$CompanyName = $row['CompanyName'];
 		$Adress1 = $row['Adress1'];
 		$Zipcode1 = $row['Zipcode1'];
@@ -25,7 +27,8 @@ if(isset($_GET['id'])){
     $invoiceNumbers = $row['NumberOfInvoices'];
 	  $RevenueAmount = $row['RevenueAmount'];
     $Limit = $row['Limit'];
-    $LedgerAccount = $row['LedgerAccount'];	    $BKR = $row['BKR'];
+    $LedgerAccount = $row['LedgerAccount'];	    
+    $BKR = $row['BKR'];
 		$OfferNumbers = $row['OfferNumbers'];
 		$OfferStatus = $row['OfferStatus'];
 		$DateOfAction = $row['DateOfAction'];
@@ -39,7 +42,12 @@ if(isset($_GET['id'])){
 	  $InternalContactPerson = $row['InternalContactPerson'];
 	}
 	?>
+ <div class='float_btn'>
+    <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+  </div>
+  <div class='button_add'>
 
+  </div>
 	<div class="user-table col-sm-6" style="margin:auto;">
 		<h2>View: <?php echo $CompanyName;?></h2>
 		<table class="table table-striped">
