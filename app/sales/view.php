@@ -24,7 +24,7 @@ if(isset($_GET['id'])){
 	  $Credit = $row['Credit'];
     $invoiceNumbers = $row['NumberOfInvoices'];
 	  $RevenueAmount = $row['RevenueAmount'];
-    $Limit = $row['LimitAmount'];
+    $Limit = $row['Limit'];
     $LedgerAccount = $row['LedgerAccount'];	    $BKR = $row['BKR'];
 		$OfferNumbers = $row['OfferNumbers'];
 		$OfferStatus = $row['OfferStatus'];
@@ -37,12 +37,11 @@ if(isset($_GET['id'])){
     $OpenProjects = $row['OpenProjects'];
 	  $Applications = $row['Applications'];
 	  $InternalContactPerson = $row['InternalContactPerson'];
-	  $Active = $row['Active'];
 	}
 	?>
 
-	<div class="user-table col-sm-6">
-		<h2>Viewing <?php echo $CompanyName;?></h2>
+	<div class="user-table col-sm-6" style="margin:auto;">
+		<h2>View: <?php echo $CompanyName;?></h2>
 		<table class="table table-striped">
 		<tbody>
 		<tr>
@@ -164,10 +163,6 @@ if(isset($_GET['id'])){
 		<tr>
 			<td><strong>Internal contact person</strong></td>
 			<td><?php echo $InternalContactPerson;?></td>
-		</tr>
-		<tr>
-			<td><strong>Active</strong></td>
-			<td><?php echo $Active;?></td>
 		</tr>
 		</div>
 		<tbody>
