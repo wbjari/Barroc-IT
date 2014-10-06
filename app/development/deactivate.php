@@ -24,8 +24,8 @@ if(isset($_GET['cid']))
  <table class='table table-striped'>
     <thead>
       <tr>
-        <td class="col-sm-2">ProjectName</td>
-        <td class="col-sm-2">MaintenanceContract</td>
+        <td class="col-sm-2">Project Name</td>
+        <td class="col-sm-2">Maintenance Contract</td>
         <td class="col-sm-2">Hardware</td>
         <td class="col-sm-2">Software</td>
         <td class="col-sm-2">Appointments</td>
