@@ -54,19 +54,16 @@ if(isset($_GET['cid']))
          //Bereking amount
       $amount = "SELECT SUM((Quantity * Price) / 100 * (BTW + 100)) AS Amount FROM invoices WHERE InvoiceNR = '$implode'";
       $r_amount = mysqli_query($con, $amount); 
-        /*  $Amount = mysqli_real_escape_string($con, $amount);
-          $query = "UPDATE invoices SET 
-                                Amount = '$Amount'
-                                WHERE InvoiceNR = '$implode' LIMIT 1";
-  $result = mysqli_query($con, $query);   */
+
           while($rows3 = mysqli_fetch_assoc($r_amount))
         {
-          var_dump($implode);
           $amount1 = implode("", $rows3);
           echo '<td>' . $amount1 . '</td>';
-
+          $insert = "UPDATE invoices SET Amount = '$amount1'
+                                   WHERE InvoiceNR = '$implode' LIMIT 1";
+          $result = mysqli_query($con, $insert);
         }
-         echo '<td><a class="btn btn-success" href="edit.php?cid='.$row['InvoiceNR'].'">Edit</a></td>'; 
+         echo '<td><a class="btn btn-success" href="edit.php?cid='.$row['InvoiceNR'].'&id=' . $row['CustomerNR'] . '">Edit</a></td>'; 
          echo '<td><a class="btn btn-warning" href="../controllers/invoiceController.php?aid='.$row['InvoiceNR'].'">Deactivate</a></td>'; 
          echo '</tr>';  
    

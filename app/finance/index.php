@@ -42,7 +42,6 @@ if($_SESSION['role'] != 1)
 		  while ($row = mysqli_fetch_assoc($r_invoices)) 
         {
         	$implodes = implode(" ", $row);
-        	var_dump($implodes);
          echo '<tr>';
          echo '<td>' . $row['CompanyName'] . '</td>';
          echo '<td>' . $row['BankaccountNr'] . '</td>';
@@ -59,7 +58,7 @@ if($_SESSION['role'] != 1)
 		 $r_sum = mysqli_query($con, $sum); 
           while($rows1 = mysqli_fetch_assoc($r_sum))
 				{
-					var_dump($rows1);
+			
 					$sum1 = implode("", $rows1);
 					echo '<td>' . $sum1 . '</td>';
 				}

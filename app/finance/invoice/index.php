@@ -226,6 +226,6 @@ echo'<a href="invoice.pdf">Download your Invoice</a>';
 </form>
 </div>
 </div>
-<div id="footer" align="center">Created by <a href="http://skymbu.info/" target="_blank">Skymbu</a></div>
+
 </body>
 </html>

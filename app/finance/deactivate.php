@@ -45,7 +45,7 @@ if(isset($_GET['cid']))
          echo '<td>' . $row['Price'] . '</td>';
          echo '<td>' . $row['BTW'] . '</td>';
          echo '<td>' . $row['Amount'] . '</td>';
-          echo '<td><a class="btn btn-success" href="../controllers/invoiceController.php?did='.$row['InvoiceNR'].'">Activate</a></td>';
+          echo '<td><a class="btn btn-success" href="../controllers/invoiceController.php?did=' . $row['InvoiceNR'] . '&test=' . $row['CustomerNR'] . '">Activate</a></td>';
          echo '</tr>';        
         }       
     ?>

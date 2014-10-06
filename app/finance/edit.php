@@ -5,9 +5,10 @@ if($_SESSION['role'] != 1)
 {
 	header('location: ../index.php');
 }
-
-
-
+if(isset($_GET['id']))
+{
+  $back = $_GET['id'];
+}
 if (isset($_POST['submit'])) 
 {
 	$id = $_GET['cid'];
@@ -30,7 +31,10 @@ if (isset($_POST['submit']))
     header("location: ./index.php");  
       
 }
-
+if(isset($_GET['id']))
+{
+  $back = $_GET['id'];
+}
 if(isset($_GET['cid']))
 {
   $id = $_GET['cid'];
@@ -87,6 +91,6 @@ if ($row = mysqli_fetch_assoc($r_update))
   ?>
 
 <div class='form-group'>
-  <a class='btn btn-default' href='index.php'>Back</a>
+  <a class='btn btn-default' href='activate.php?cid=<?php echo $back;  ?>'>Back</a>
 </div>
 <?php require'../templates/footer.php';?>

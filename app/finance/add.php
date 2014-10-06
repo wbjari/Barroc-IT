@@ -23,7 +23,6 @@ if (isset($_POST['submit']))
     Header("location: ./index.php");  
       
 }
-
 if(isset($_GET['cid']))
 {
 	$id = $_GET['cid'];
