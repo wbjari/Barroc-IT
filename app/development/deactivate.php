@@ -21,6 +21,10 @@ if(isset($_GET['cid']))
   <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
 </div>
+<form action="search_deactivate.php" method="get" name="search_deactivate">
+  <input id="search-bar" type="text" name="search_deactivate" >
+  <input id="search-button" type="submit" value="Search" class="btn btn-primary">
+</form>
  <table class='table table-striped'>
     <thead>
       <tr>

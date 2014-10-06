@@ -21,6 +21,10 @@ if(isset($_GET['cid']))
   <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
 </div>
+<form action="search_activate.php" method="get" name="search_activate">
+  <input id="search-bar" type="text" name="search_activate" >
+  <input id="search-button" type="submit" value="Search" class="btn btn-primary">
+</form>
 <div class='form-group'>
   <div class="float_left">
   <a class='btn btn-success' href='<?php echo "add.php?cid=$id" ?>'>Add</a>
