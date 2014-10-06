@@ -44,23 +44,37 @@ if($_SESSION['role'] != 1)
          echo '<tr>';
          echo '<td>' . $row['CompanyName'] . '</td>';
          echo '<td>' . $row['BankaccountNr'] . '</td>';
-         echo '<td>' . $row['Credit'] . '</td>';
-         echo '<td>' . $row['RevenueAmount'] . '</td>';
+         //Bereking credit hieronder
+         $credit = "SELECT SUM(Amount) AS Credit FROM invoices WHERE CustomerNR = '$i' AND Status = 1";
+		 $r_credit = mysqli_query($con, $credit); 
+          while($rows2 = mysqli_fetch_assoc($r_credit))
+				{
+					$credit1 = implode("", $rows2);
+					echo '<td>' . $credit1 . '</td>';
+				}
+         // Berekening revenue amount hieronder
+         $sum = "SELECT SUM(Amount) AS RevenueAmount FROM invoices WHERE CustomerNR = '$i'";
+		 $r_sum = mysqli_query($con, $sum); 
+          while($rows1 = mysqli_fetch_assoc($r_sum))
+				{
+					$sum1 = implode("", $rows1);
+					echo '<td>' . $sum1 . '</td>';
+				}
          echo '<td>' . $row['Limit'] . '</td>';
          echo '<td>' . $row['LedgerAccount'] . '</td>';
          echo '<td>' . $row['BKR'] . '</td>';
          echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
          echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
          echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
-         
-		$count = "SELECT COUNT(InvoiceNR) FROM invoices WHERE CustomerNR = '$i'";
+         //Count aantal facturen hieronder
+		$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$i'";
 		$r_count = mysqli_query($con, $count); 
 		$i++;
 
 			while($rows = mysqli_fetch_assoc($r_count))
 				{
-					$separater = implode("", $rows);
-					echo '<td>' . $separater . '</td>';
+					$counter = implode("", $rows);
+					echo '<td>' . $counter . '</td>';
 				}
          echo '</tr>';  
         }   

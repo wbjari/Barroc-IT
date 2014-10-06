@@ -4,6 +4,8 @@
 $i=1;
 $invoices = 'SELECT * FROM customers ';
 $r_invoices = mysqli_query($con, $invoices);
+
+
   
 if(isset($_GET['aid'])){
 

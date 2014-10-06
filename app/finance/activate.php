@@ -34,7 +34,7 @@ if(isset($_GET['cid']))
         <td class="col-sm-2">Description</td>
         <td class="col-sm-2">Price</td>
         <td class="col-sm-2">BTW</td>
-        <td class="col-sm-2">Amount</td>
+        <td class="col-sm-2">+Amount</td>
         <td class="col-sm-2">Edit</td>
         <td class="col-sm-2">Deactivate</td>
       </tr>

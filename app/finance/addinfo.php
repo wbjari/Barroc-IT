@@ -11,13 +11,11 @@ if (isset($_POST['submit']))
   // error_reporting(E_ALL ^ E_NOTICE);
   $id = $_GET['cid'];
   $BankaccountNr = mysqli_real_escape_string($con, $_POST['BankaccountNr']);
-  $Credit = mysqli_real_escape_string($con, $_POST['Credit']);
-  $RevenueAmount = mysqli_real_escape_string($con, $_POST['RevenueAmount']);
+  /*$Credit = mysqli_real_escape_string($con, $_POST['Credit']);
+  $RevenueAmount = mysqli_real_escape_string($con, $_POST['RevenueAmount']);*/
   $Limit = mysqli_real_escape_string($con, $_POST['Limit']);
   $LedgerAccount = mysqli_real_escape_string($con, $_POST['LedgerAccount']);
   $BKR = mysqli_real_escape_string($con, $_POST['BKR']);
-/*  $query = "INSERT INTO customers (BankaccountNr, Credit, RevenueAmount, Limit, LedgerAccount, BKR)
-                        VALUES    ('$BankaccountNr','$Credit','$RevenueAmount','$Limit1', '$LedgerAccount', '$BKR')";*/
   $query = "UPDATE customers SET BankaccountNr = '$BankaccountNr', 
                                 Credit = '$Credit', 
                                 RevenueAmount = '$RevenueAmount',  
@@ -52,27 +50,24 @@ if ($row = mysqli_fetch_assoc($r_update))
   <LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
      <label for="BankaccountNr">Bank account number</label>
-     <input value="<?php echo $row['BankaccountNr']; ?>" type="text" class="form-control" name="BankaccountNr" >    
+     <input value="<?php echo $row['BankaccountNr']; ?>" type="text" class="form-control" name="BankaccountNr" placeholder="Bankaccountnumber">    
     </div>
 
-    <div class="form-group col-sm-6">
-     <label for="Credit">Credit</label>
-     <input value="<?php echo $row['Credit']; ?>" type="text" class="form-control" name="Credit">   
-    </div>
-
-    <div class="form-group col-sm-6">
-     <label for="RevenueAmount">Revenue amount</label>
-     <input value="<?php echo $row['RevenueAmount']; ?>" type="text" class="form-control" name="RevenueAmount" >    
-    </div>
+   
 
     <div class="form-group col-sm-6">
      <label for="LedgerAccount">Ledger account</label>
-     <input value="<?php echo $row['LedgerAccount']; ?>" type="text" class="form-control" name="LedgerAccount">   
+     <input value="<?php echo $row['LedgerAccount']; ?>" type="text" class="form-control" name="LedgerAccount" placeholder="Ledgeraccount">   
     </div>
 
     <div class="form-group col-sm-6">
      <label for="BKR">BKR</label>
-     <input value="<?php echo $row['BKR']; ?>" type="text" class="form-control" name="BKR" >    
+     <input value="<?php echo $row['BKR']; ?>" type="text" class="form-control" name="BKR" placeholder="Y / N" >    
+    </div>
+    
+    <div class="form-group col-sm-6">
+     <label for="Limit">Limit</label>
+     <input value="<?php echo $row['Limit']; ?>" type="text" class="form-control" name="Limit" >    
     </div>
 
     <div class="form-group col-sm-6">
