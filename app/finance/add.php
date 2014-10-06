@@ -63,10 +63,6 @@ if(isset($_GET['cid']))
      <label for="BTW">BTW</label>
      <input type="text" class="form-control" name="BTW">   
     </div>
-     <div class="form-group col-sm-6">
-     <label for="Amount">Amount</label>
-     <input type="text" class="form-control" name="Amount">   
-    </div>
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
     </div>   

@@ -78,11 +78,6 @@ if ($row = mysqli_fetch_assoc($r_update))
      <input value="<?php echo $row['BTW']; ?>" type="text" class="form-control" name="BTW" >    
     </div>
 
-    <div class="form-group col-sm-6">
-     <label for="Amount">Amount</label>
-     <input value="<?php echo $row['Amount']; ?>" type="text" class="form-control" name="Amount">   
-    </div>
-
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Save" class="btn btn-primary">     
     </div>   
