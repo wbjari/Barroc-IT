@@ -1,7 +1,7 @@
 <?php 	require '../templates/header.php';
 		require '../controllers/projectsController.php';
 
-if($_SESSION['role'] != 2)
+if($_SESSION['role'] != 2 & 4)
 {
 	header('location: ../index.php');
 }

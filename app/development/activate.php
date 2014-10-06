@@ -1,7 +1,7 @@
 <?php   require '../templates/header.php';
     require '../controllers/projectsController.php';
 
-if($_SESSION['role'] != 2)
+if($_SESSION['role'] != 2 & 4)
 {
   header('location: ../index.php');
 }
@@ -26,7 +26,7 @@ if(isset($_GET['cid']))
   <a class='btn btn-success' href='<?php echo "add.php?cid=$id" ?>'>Add</a>
   </div>
 </div>
- <table class='table table-striped'>
+<table class='table table-striped'>
     <thead>
       <tr>
         <td class="col-sm-2">Project Name</td>
