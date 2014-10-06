@@ -42,16 +42,20 @@ if($_SESSION['role'] != 1)
 		  while ($row = mysqli_fetch_assoc($r_invoices)) 
         {
         	$implodes = implode(" ", $row);
+        	var_dump($implodes);
          echo '<tr>';
          echo '<td>' . $row['CompanyName'] . '</td>';
          echo '<td>' . $row['BankaccountNr'] . '</td>';
          //Bereking credit hieronder
-         $credit = "SELECT SUM(Amount) AS Credit FROM invoices WHERE CustomerNR = '$implodes' AND Status = 1";
+         $credit = "SELECT SUM(Amount) FROM invoices WHERE CustomerNR = '$implodes' AND Status = 1";
 		 $r_credit = mysqli_query($con, $credit); 
           while($rows2 = mysqli_fetch_assoc($r_credit))
 				{
 					$credit1 = implode("", $rows2);
 					echo '<td>' . $credit1 . '</td>';
+					$insert2 = "UPDATE customers SET Credit = '$credit1'
+                                   WHERE CustomerNR = '$implodes' LIMIT 1";
+          $result = mysqli_query($con, $insert2);
 				}
          // Berekening revenue amount hieronder
          $sum = "SELECT SUM(Amount) AS RevenueAmount FROM invoices WHERE CustomerNR = '$implodes'";
@@ -61,6 +65,9 @@ if($_SESSION['role'] != 1)
 			
 					$sum1 = implode("", $rows1);
 					echo '<td>' . $sum1 . '</td>';
+					$insert1 = "UPDATE customers SET RevenueAmount = '$sum1'
+                                   WHERE CustomerNR = '$implodes' LIMIT 1";
+          $result = mysqli_query($con, $insert1);
 				}
          echo '<td>' . $row['Limit'] . '</td>';
          echo '<td>' . $row['LedgerAccount'] . '</td>';
