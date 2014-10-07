@@ -22,35 +22,35 @@ if(isset($_GET['id'])){
 		$TelephoneNumber2 = $row['TelephoneNumber2'];
 		$FaxNumber = $row['FaxNumber'];
 		$Email = $row['Email'];
-	  $IBAN = $row['BankaccountNr'];
-	  $Credit = $row['Credit'];
-    $invoiceNumbers = $row['NumberOfInvoices'];
-	  $RevenueAmount = $row['RevenueAmount'];
-    $Limit = $row['Limit'];
-    $LedgerAccount = $row['LedgerAccount'];	    
-    $BKR = $row['BKR'];
+		$IBAN = $row['BankaccountNr'];
+	  	$Credit = $row['Credit'];
+    	$invoiceNumbers = $row['NumberOfInvoices'];
+	  	$RevenueAmount = $row['RevenueAmount'];
+    	$Limit = $row['Limit'];
+    	$LedgerAccount = $row['LedgerAccount'];	    
+    	$BKR = $row['BKR'];
 		$OfferNumbers = $row['OfferNumbers'];
 		$OfferStatus = $row['OfferStatus'];
 		$DateOfAction = $row['DateOfAction'];
 		$LastContactDate = $row['LastContactDate'];
 		$NextAction = $row['NextAction'];
 		$SalePercentage = $row['SalePercentage'];
-    $Prospect = $row['Prospect'];
+    	$Prospect = $row['Prospect'];
 		$CreditWorthy = $row['CreditWorthy'];
-    $OpenProjects = $row['OpenProjects'];
-	  $Applications = $row['Applications'];
-	  $InternalContactPerson = $row['InternalContactPerson'];
+    	$OpenProjects = $row['OpenProjects'];
+	  	$Applications = $row['Applications'];
+	  	$InternalContactPerson = $row['InternalContactPerson'];
 	}
 	?>
  <div class='float_btn'>
     <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
   <div class='button_add'>
-
+	<a class='btn btn-primary' href='<?php echo "addAppointment.php"?>'>Add appointment</a>
   </div>
 	<div class="user-table col-sm-6" style="margin:auto;">
 		<h2>View: <?php echo $CompanyName;?></h2>
-		<table class="table table-striped">
+		<table id="table-view" class="table table-striped">
 		<tbody>
 		<tr>
 			<td><strong>Company name</strong></td>

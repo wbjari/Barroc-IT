@@ -18,8 +18,14 @@ if($_SESSION['role'] != 3)
   <div class='button_add'>
     <a class='btn btn-primary' href='<?php echo "add.php"?>'>Add</a>
   </div>
+<div class="search-marginleft">
+   <form action="search.php" method="get" name="search">
+    <input id="search-bar" type="text" name="search" >
+     <input id="search-button" type="submit" value="Search" class="btn btn-primary">
+  </form>
+</div>
 <div class="row">
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped">
     <thead>
       <tr>
         <th>Company name</th>
