@@ -42,7 +42,6 @@ if($_SESSION['role'] != 1)
 		  while ($row = mysqli_fetch_assoc($r_invoices)) 
         {
         	$implodes = implode(" ", $row);
-        	var_dump($implodes);
          echo '<tr>';
          echo '<td>' . $row['CompanyName'] . '</td>';
          echo '<td>' . $row['BankaccountNr'] . '</td>';

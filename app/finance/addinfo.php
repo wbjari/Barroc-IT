@@ -50,7 +50,7 @@ if ($row = mysqli_fetch_assoc($r_update))
   <LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
      <label for="BankaccountNr">Bank account number</label>
-     <input value="<?php echo $row['BankaccountNr']; ?>" type="text" class="form-control" name="BankaccountNr" placeholder="Bankaccountnumber">    
+     <input value="<?php echo $row['BankaccountNr']; ?>" type="text" class="form-control" name="BankaccountNr" placeholder="NL91ABNA0417164300">    
     </div>
 
    
