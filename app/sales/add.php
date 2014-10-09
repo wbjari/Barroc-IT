@@ -36,9 +36,11 @@ if (isset($_POST['submit']))
                         VALUES    ('$companyName','$adress1', '$zipcode1', '$residence1', '$adress2', '$zipcode2', '$residence2', '$contactPerson', 
                                   '$initials', '$telephoneNumber1', '$telephoneNumber2', '$faxNumber', '$email', '$offerNumbers', '$offerStatus', 
                                   '$prospect', '$dateOfAction', '$lastContactDate', '$nextAction', '$salePercentage', '$creditWorthy')";
-  $result = mysqli_query($con, $query);
+   $result = mysqli_query($con, $query);
+   $lastId = mysqli_insert_id($con);
 
-    header("location: ./view.php?id=".$id);  
+    header("location: ./view.php?id=".$lastId);
+    // header("location: ./index.php")  
       
 }
 
@@ -46,6 +48,7 @@ if(isset($_GET['cid']))
 {
   $id = $_GET['cid'];
   $edit = "SELECT * FROM customers WHERE CustomerNR = '$id'";
+  // SELECT * FROM customers WHERE CompanyName = $_POST['CompanyName']
   $r_edit = mysqli_query($con, $edit);
 }
 ?>
