@@ -1,13 +1,12 @@
 <?php 	require '../../config/config.php';?>
 <?php
 
-$i=1;
+
 $invoices = 'SELECT * FROM customers ';
 $r_invoices = mysqli_query($con, $invoices);
 
-
-  
-if(isset($_GET['aid'])){
+if(isset($_GET['aid']))
+{
 
 	$id = $_GET['aid'];
 	$test = $_GET['test'];
@@ -17,7 +16,9 @@ if(isset($_GET['aid'])){
 	header('location: ../finance/');
 	$test;
 }
-if(isset($_GET['did'])){
+
+if(isset($_GET['did']))
+{
 
 	$id = $_GET['did'];
 	$deactivate = "UPDATE invoices SET Status = 1 WHERE InvoiceNR = '$id' LIMIT 1";

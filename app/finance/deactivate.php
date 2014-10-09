@@ -5,6 +5,7 @@ if($_SESSION['role'] != 1)
 {
   header('location: ../index.php');
 }
+
 if(isset($_GET['cid']))
 {
   $id = $_GET['cid'];
@@ -14,7 +15,7 @@ if(isset($_GET['cid']))
 ?>
 
 <div class="panel-text">
-    <h1>Finance panel: Deactivated</h1>
+    <h1>Finance panel: Paid</h1>
 </div>
 <div class='form-group'>
   <div class='float_btn'>
@@ -30,14 +31,13 @@ if(isset($_GET['cid']))
         <td class="col-sm-2">Price</td>
         <td class="col-sm-2">BTW</td>
         <td class="col-sm-2">Amount</td>
-        <td class="col-sm-2">Activate</td>
       </tr>
       </tr>
     </thead>
     <tbody>
     <?php
       while ($row = mysqli_fetch_assoc($r_view)) 
-        {
+      {
          echo '<tr>';
          echo '<td>' . $row['InvoiceDuration'] . '</td>';
          echo '<td>' . $row['Quantity'] . '</td>';
@@ -45,9 +45,9 @@ if(isset($_GET['cid']))
          echo '<td>' . $row['Price'] . '</td>';
          echo '<td>' . $row['BTW'] . '</td>';
          echo '<td>' . $row['Amount'] . '</td>';
-          echo '<td><a class="btn btn-success" href="../controllers/invoiceController.php?did=' . $row['InvoiceNR'] . '&test=' . $row['CustomerNR'] . '">Activate</a></td>';
+         echo '<td><a class="btn btn-success" href="../controllers/invoiceController.php?did=' . $row['InvoiceNR'] . '&test=' . $row['CustomerNR'] . '">Not paid</a></td>';
          echo '</tr>';        
-        }       
+      }       
     ?>
 </table>
 

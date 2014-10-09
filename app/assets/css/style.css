@@ -53,13 +53,9 @@
 	display: inline-block;
 }
 
-
-
-
-
-
-
-
+.limitCheck{
+	background-color:red;
+}
 
 .panel-text 
 {

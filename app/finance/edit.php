@@ -18,12 +18,14 @@ if (isset($_POST['submit']))
   $Price = mysqli_real_escape_string($con, $_POST['Price']);
   $BTW = mysqli_real_escape_string($con, $_POST['BTW']);
   $Amount = mysqli_real_escape_string($con, $_POST['Amount']);
+  $Accepted = mysqli_real_escape_string($con, $_POST['Accepted']);
 	$query = "UPDATE invoices SET InvoiceDuration = '$InvoiceDuration', 
                                 Quantity = '$Quantity', 
                                 Description = '$Description',  
                                 Price = '$Price', 
                                 BTW = '$BTW',
-                                Amount = '$Amount'
+                                Amount = '$Amount',
+                                Accepted = '$Accepted'
                                 WHERE InvoiceNR = '$id' LIMIT 1";
 	$result = mysqli_query($con, $query);
 
@@ -59,27 +61,31 @@ if ($row = mysqli_fetch_assoc($r_update))
 	<LEGEND>Edit</LEGEND>
     <div class="form-group col-sm-6">
      <label for="InvoiceDuration">Invoiceduration</label>
-     <input value="<?php echo $row['InvoiceDuration']; ?>" type="text" class="form-control" name="InvoiceDuration" >    
+     <input value="<?php echo $row['InvoiceDuration']; ?>" type="text" class="form-control" name="InvoiceDuration" required>    
     </div>
 
     <div class="form-group col-sm-6">
      <label for="Quantity">Quantity</label>
-     <input value="<?php echo $row['Quantity']; ?>" type="text" class="form-control" name="Quantity">   
+     <input value="<?php echo $row['Quantity']; ?>" type="text" class="form-control" name="Quantity" required>   
     </div>
 
     <div class="form-group col-sm-6">
      <label for="Description">Description</label>
-     <input value="<?php echo $row['Description']; ?>" type="text" class="form-control" name="Description" >    
+     <input value="<?php echo $row['Description']; ?>" type="text" class="form-control" name="Description" required>    
     </div>
 
     <div class="form-group col-sm-6">
      <label for="Price">Price</label>
-     <input value="<?php echo $row['Price']; ?>" type="text" class="form-control" name="Price">   
+     <input value="<?php echo $row['Price']; ?>" type="text" class="form-control" name="Price" required>   
     </div>
 
     <div class="form-group col-sm-6">
      <label for="BTW">BTW</label>
-     <input value="<?php echo $row['BTW']; ?>" type="text" class="form-control" name="BTW" >    
+     <input value="<?php echo $row['BTW']; ?>" type="text" class="form-control" name="BTW" required>    
+    </div>
+        <div class="form-group col-sm-6">
+     <label for="Accepted">Accepted</label>
+     <input value="<?php echo $row['Accepted']; ?>" type="text" class="form-control" name="Accepted" required>    
     </div>
 
     <div class="form-group col-sm-12">
