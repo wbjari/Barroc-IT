@@ -2,7 +2,7 @@
 require '../templates/header.php';
 require '../controllers/projectsController.php';
 
-if($_SESSION['role'] != 2 & 4)
+if($_SESSION['role'] != (2 || 4)) 
 {
 	header('location: ../index.php');
 }
@@ -21,8 +21,15 @@ if($_SESSION['role'] != 2 & 4)
 <table class='table table-striped'>
 	<thead>
 		<tr>
-			<td class="col-sm-2">Company name</td>
-			<td class="col-sm-2">Contact persons</td>
+			<td class="col-sm-2"><a href="index.php?sort=CompanyName">Company name</a></td>
+			<td class="col-sm-2"><a href="index.php?sort=ContactPerson">Contact person</td>
+			<td class="col-sm-2"><a href="index.php?sort=Address1">Address</td>
+			<td class="col-sm-2"><a href="index.php?sort=Zipcode1">Zip code</td>
+			<td class="col-sm-2"><a href="index.php?sort=Residence1">Residence</td>
+			<td class="col-sm-2"><a href="index.php?sort=TelephoneNumber1">Telephone number</td>
+			<td class="col-sm-2"><a href="index.php?sort=FaxNumber">Fax number</td>
+			<td class="col-sm-2"><a href="index.php?sort=Email">E-mail</td>
+			<td class="col-sm-2">Limit</td>
 			<td class="col-sm-2">Activated projects</td>
 			<td class="col-sm-2">Deactivated projects</td>
 			<td class="col-sm-1">Open projects</td>
@@ -36,6 +43,22 @@ if($_SESSION['role'] != 2 & 4)
 	    echo '<tr>';
 	    echo '<td>' . $row['CompanyName'] . '</td>';
 	    echo '<td>' . $row['ContactPerson'] . '</td>';
+	    echo '<td>' . $row['Address1'] . '</td>';
+	    echo '<td>' . $row['Zipcode1'] . '</td>';
+	    echo '<td>' . $row['Residence1'] . '</td>';
+	    echo '<td>' . $row['TelephoneNumber1'] . '</td>';
+	    echo '<td>' . $row['FaxNumber'] . '</td>';
+	    echo '<td>' . $row['Email'] . '</td>';
+
+	    $credit2 = $row['Credit'];
+		$limit2 = $row['Limit'];
+				
+		if($credit2 > $limit2) {
+			echo '<td> <div class="limitCheck">' . $row['Limit'] . '</div></td>';
+		} else {
+			echo '<td>' . $row['Limit'] . '</td>';
+		}
+
 	    echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a>View</td>';
 	    echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a>View</td>'; 
 

@@ -1,7 +1,8 @@
-<?php   require '../templates/header.php';
-    require '../controllers/projectsController.php';
+<?php   
+require '../templates/header.php';
+require '../controllers/projectsController.php';
 
-if($_SESSION['role'] != 2 & 4)
+if($_SESSION['role'] != (2 || 4)) 
 {
   header('location: ../index.php');
 }
@@ -19,8 +20,7 @@ if (isset($_POST['submit']))
                         VALUES    ('$id','$ProjectName','$MaintenanceContract','$Hardware','$Software', '$Appointments')";
   $result = mysqli_query($con, $query);
 
-    header("location: index.php?id=".$id);  
-      
+    header("location: index.php?id=".$id);   
 }
 
 if(isset($_GET['cid']))
@@ -30,9 +30,12 @@ if(isset($_GET['cid']))
   $r_edit = mysqli_query($con, $edit);
 }
 ?>
+
 <div class="panel-text">
     <h1>Development panel: Add</h1>
 </div>
+
+<!--LOGOUT BUTTON-->
 <div class='form-group'>
   <div class='float_btn'>
   <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
@@ -40,36 +43,34 @@ if(isset($_GET['cid']))
 </div>
 
 <form action="add.php?cid=<?php echo $id; ?>" method="POST">
-  <LEGEND>Add</LEGEND>
+    <LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
-     <label for="ProjectName">ProjectName</label>
-     <input type="text" class="form-control" name="ProjectName" >    
-    </div>
-
-    <div class="form-group col-sm-6">
-     <label for="MaintenanceContract">MaintenanceContract</label>
-     <input type="text" class="form-control" name="MaintenanceContract">   
+      <label for="ProjectName">ProjectName</label>
+      <input type="text" class="form-control" name="ProjectName" placeholder="Website Application" required>    
     </div>
     <div class="form-group col-sm-6">
-     <label for="Hardware">Hardware</label>
-     <input type="text" class="form-control" name="Hardware" >    
+      <label for="MaintenanceContract">MaintenanceContract</label>
+      <input type="text" class="form-control" name="MaintenanceContract" placeholder="Yes / No" required>   
     </div>
     <div class="form-group col-sm-6">
-     <label for="Software">Software</label>
-     <input type="text" class="form-control" name="Software" >    
+      <label for="Hardware">Hardware</label>
+      <input type="text" class="form-control" name="Hardware" placeholder="Desktop PC">    
     </div>
     <div class="form-group col-sm-6">
-     <label for="Appointments">Appointments</label>
-     <input type="text" class="form-control" name="Appointments">   
+      <label for="Software">Software</label>
+      <input type="text" class="form-control" name="Software" placeholder="Microsoft Word">    
+    </div>
+    <div class="form-group col-sm-6">
+      <label for="Appointments">Appointments</label>
+      <input type="text" class="form-control" name="Appointments" placeholder="Number of appointments">   
     </div>
     <div class="form-group col-sm-12">
-     <input name="submit" type="submit" value="Add" class="btn btn-primary">     
+      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
     </div>   
-      </form>
-
-
+</form>
 
 <div class='form-group'>
   <a class='btn btn-default' href='<?php echo "index.php?id=$id" ?>'>Back</a>
 </div>
+
 <?php require'../templates/footer.php';?>
