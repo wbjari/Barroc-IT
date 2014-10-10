@@ -69,9 +69,9 @@ $search = trim($search);
 								$sum1 = implode("", $rows1);
 								echo '<td>' . $sum1 . '</td>';
 							}
-			         $credit2 = $row['Credit'];
+			        $credit2 = $row['Credit'];
 					$limit2 = $row['Limit'];
-				
+					// Check of credit hoger is dan limit
 					if($credit2 > $limit2)
 					{
          				echo '<td> <div class="limitCheck">' . $row['Limit'] . '</div></td>';
@@ -82,8 +82,18 @@ $search = trim($search);
      				}	
 			         echo '<td>' . $row['LedgerAccount'] . '</td>';
 			         echo '<td>' . $row['BKR'] . '</td>';
-			         echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
-			         echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+			        //Check of BKR Y of N is
+			        $bkrcheck = "SELECT * FROM customers WHERE BKR = 'Y' AND CustomerNR = '$implode'";
+			        $r_bkrcheck = mysqli_query($con, $bkrcheck);
+			        
+			        if(mysqli_num_rows($r_bkrcheck) > 0){
+			        echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+			        echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+			    	}
+			    	else{
+			    	echo '<td> <a class="btn btn-warning"href=""</a> Check </td>';
+			        echo '<td> <a class="btn btn-warning"href=""</a> BKR </td>';
+			    	}
 			         echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
 			         //Count aantal facturen hieronder
 					$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$implode' AND Status = 1";

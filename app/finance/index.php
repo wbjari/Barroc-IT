@@ -72,7 +72,7 @@ if($_SESSION['role'] != 1)
 				
 					$credit2 = $row['Credit'];
 					$limit2 = $row['Limit'];
-				
+					//Check of credit hoger is dan limit
 					if($credit2 > $limit2)
 					{
          				echo '<td> <div class="limitCheck">' . $row['Limit'] . '</div></td>';
@@ -83,8 +83,19 @@ if($_SESSION['role'] != 1)
      				}	
 			        echo '<td>' . $row['LedgerAccount'] . '</td>';
 			        echo '<td>' . $row['BKR'] . '</td>';
+			       	
+			        //Check of BKR Y of N is
+			        $bkrcheck = "SELECT * FROM customers WHERE BKR = 'Y' AND CustomerNR = '$implodes'";
+			        $r_bkrcheck = mysqli_query($con, $bkrcheck);
+			        
+			        if(mysqli_num_rows($r_bkrcheck) > 0){
 			        echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
 			        echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+			    	}
+			    	else{
+			    	echo '<td> <a class="btn btn-warning"href=""</a> Check </td>';
+			        echo '<td> <a class="btn btn-warning"href=""</a> BKR </td>';
+			    	}
 			        echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
 			        
 			        //Count aantal facturen hieronder
