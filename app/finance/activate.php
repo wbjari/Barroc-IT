@@ -36,8 +36,6 @@ if(isset($_GET['cid']))
         <td class="col-sm-2">Price</td>
         <td class="col-sm-2">BTW</td>
         <td class="col-sm-2">Amount</td>
-        <td class="col-sm-2">Accepted</td>
-        <td class="col-sm-2">Edit</td>
       </tr>
       </tr>
     </thead>
@@ -62,8 +60,7 @@ if(isset($_GET['cid']))
                 echo '<td>' . $amount1 . '</td>';
                 $insert = "UPDATE invoices SET Amount = '$amount1' WHERE InvoiceNR = '$implode' LIMIT 1";
                 $result = mysqli_query($con, $insert);
-            }
-         echo '<td>' . $row['Accepted'] . '</td>';   
+            }  
          echo '<td><a class="btn btn-success" href="edit.php?cid='.$row['InvoiceNR'].'&id=' . $row['CustomerNR'] . '">Edit</a></td>'; 
          echo '<td><a class="btn btn-warning" href="../controllers/invoiceController.php?aid='.$row['InvoiceNR'].'">Paid</a></td>'; 
          echo '</tr>';   

@@ -50,7 +50,6 @@ $search = trim($search);
 
 				while($row = mysqli_fetch_assoc($result)){ 
 					$implode = implode(" ", $row);
-					var_dump($implode);
 			         echo '<tr>';
 			         echo '<td>' . $row['CompanyName'] . '</td>';
 			         echo '<td>' . $row['BankaccountNr'] . '</td>';
@@ -70,14 +69,24 @@ $search = trim($search);
 								$sum1 = implode("", $rows1);
 								echo '<td>' . $sum1 . '</td>';
 							}
-			         echo '<td>' . $row['Limit'] . '</td>';
+			         $credit2 = $row['Credit'];
+					$limit2 = $row['Limit'];
+				
+					if($credit2 > $limit2)
+					{
+         				echo '<td> <div class="limitCheck">' . $row['Limit'] . '</div></td>';
+     				}
+     				else
+     				{
+     					echo '<td>' . $row['Limit'] . '</td>';
+     				}	
 			         echo '<td>' . $row['LedgerAccount'] . '</td>';
 			         echo '<td>' . $row['BKR'] . '</td>';
 			         echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
 			         echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
 			         echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
 			         //Count aantal facturen hieronder
-					$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$implode'";
+					$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$implode' AND Status = 1";
 					$r_count = mysqli_query($con, $count); 
 					while($rows = mysqli_fetch_assoc($r_count))
 						{

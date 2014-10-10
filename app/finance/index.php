@@ -13,6 +13,9 @@ if($_SESSION['role'] != 1)
 </div>
   <div class='float_btn'>
 	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+  </div>  
+  <div class='float_btn'>
+	<a class='btn btn-primary' href='../general/comment.php'>Comments</a>
   </div>
   				<form action="search.php" method="get" name="search">
 					<input id="search-bar" type="text" name="search" >
