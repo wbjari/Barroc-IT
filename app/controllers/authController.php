@@ -6,6 +6,7 @@ if(isset($_POST['authUser']))
 {
 	$username = mysqli_real_escape_string($con, $_POST['username']);
 	$password = mysqli_real_escape_string($con, $_POST['password']);
+	/*$hashedPassword = password_hash("$password", PASSWORD_DEFAULT);*/
 	$sql = "SELECT username, password, userrole FROM users WHERE username = '$username'";
 		if(!$query = mysqli_query($con, $sql))
 		{

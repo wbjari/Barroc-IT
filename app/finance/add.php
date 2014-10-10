@@ -54,7 +54,7 @@ if(isset($_GET['cid']))
      <label for="Quantity" >Quantity</label>
      <input type="text" class="form-control" name="Quantity" placeholder="5" required>   
     </div>
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-6 col-xs-6">
      <label for="Description" >Description</label>
      <input type="text" class="form-control" name="Description" placeholder="Text" required>    
     </div>
@@ -74,6 +74,8 @@ if(isset($_GET['cid']))
 
 
 <div class='form-group'>
+    <div class="float_left">
   <a class='btn btn-default' href='activate.php?cid=<?php echo $back;  ?>'>Back</a>
+    </div>
 </div>
 <?php require'../templates/footer.php';?>

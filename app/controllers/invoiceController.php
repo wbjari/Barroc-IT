@@ -2,7 +2,7 @@
 <?php
 
 
-$invoices = 'SELECT * FROM customers ';
+$invoices = 'SELECT * FROM customers WHERE Prospect = "N" ';
 $r_invoices = mysqli_query($con, $invoices);
 
 if(isset($_GET['aid']))

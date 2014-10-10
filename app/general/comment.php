@@ -79,26 +79,34 @@ if (isset($_POST['submit']))
       if($_SESSION['role'] == 1){
       	
 		echo   "<div class='form-group'>
+              <div class ='float_left'>
   				  <a class='btn btn-default' href='../finance/'>Back</a>
+              </div>
 		 	    </div>";
 	
 		}
 		elseif($_SESSION['role'] == 2){
 
 		echo  " <div class='form-group'>
+                 <div class ='float_left'>
   			      <a class='btn btn-default' href='../development/'>Back</a>
+                </div>
 			    </div> ";
 	
 		}
 		elseif($_SESSION['role'] == 3){
 		 echo "<div class='form-group'>
+              <div class ='float_left'>
   			     <a class='btn btn-default' href='../sales/'>Back</a>
+              </div>
 		       </div>";
 	
 		  }
 		elseif($_SESSION['role'] == 4){
 		 echo "<div class='form-group'>
+              <div class ='float_left'>
   			     <a class='btn btn-default' href='../sales/'>Back</a>
+              </div>
 		       </div>";
 			  }  
 
