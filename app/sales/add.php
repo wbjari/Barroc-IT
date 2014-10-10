@@ -43,14 +43,6 @@ if (isset($_POST['submit']))
     // header("location: ./index.php")  
       
 }
-
-if(isset($_GET['cid']))
-{
-  $id = $_GET['cid'];
-  $edit = "SELECT * FROM customers WHERE CustomerNR = '$id'";
-  // SELECT * FROM customers WHERE CompanyName = $_POST['CompanyName']
-  $r_edit = mysqli_query($con, $edit);
-}
 ?>
 <div class="panel-text">
     <h1>Finance panel: Add</h1>
@@ -72,99 +64,101 @@ if(isset($_GET['cid']))
      <label for="Adress1">Address 1*</label>
      <input type="text" class="form-control" name="Adress1">   
     </div>
+    
     <div class="form-group col-sm-6">
      <label for="Zipcode1">Zipcode 1*</label>
      <input type="text" class="form-control" name="Zipcode1" >    
     </div>
+
     <div class="form-group col-sm-6">
      <label for="Residence1">Residence 1*</label>
      <input type="text" class="form-control" name="Residence1">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="Adress2">Address 2</label>
      <input type="text" class="form-control" name="Adress2">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="Zipcode2">Zipcode 2</label>
      <input type="text" class="form-control" name="Zipcode2">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="Residence2">Residence 2</label>
      <input type="text" class="form-control" name="Residence2">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="ContactPerson">Contact person</label>
      <input type="text" class="form-control" name="ContactPerson">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="Initials">Initials</label>
      <input type="text" class="form-control" name="Initials">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="TelephoneNumber1">Telephone 1*</label>
      <input type="text" class="form-control" name="TelephoneNumber1">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="TelephoneNumber2">Telephone 2</label>
      <input type="text" class="form-control" name="TelephoneNumber2">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="FaxNumber">Fax</label>
      <input type="text" class="form-control" name="FaxNumber">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="Email">Email*</label>
      <input type="text" class="form-control" name="Email">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="OfferNumbers">Offer numbers</label>
      <input type="text" class="form-control" name="OfferNumbers">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="OfferStatus">Offer status</label>
      <input type="text" class="form-control" name="OfferStatus">   
     </div>
 
-    <div class="form-group">
-      <label for="Prospect" class="col-sm-6 control-label">Prospect</label>
-      <div class="col-sm-6">
-        <div class="radio">
-          <label>
-            <input type="radio" name="Prospect" value="1" checked="">
-            Yes
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="Prospect" value="0">
-            No
-          </label>
-        </div>
-      </div>
-    </div>
     <div class="form-group col-sm-6">
      <label for="DateOfAction">Date of action</label>
      <input type="text" class="form-control" name="DateOfAction">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="LastContactDate">Last contact date</label>
      <input type="text" class="form-control" name="LastContactDate">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="NextAction">Next action</label>
      <input type="text" class="form-control" name="NextAction">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="SalePercentage">Sale percentage</label>
      <input type="text" class="form-control" name="SalePercentage">   
     </div>
+
     <div class="form-group col-sm-6">
      <label for="CreditWorthy">Credit worthy</label>
      <input type="text" class="form-control" name="CreditWorthy">   
     </div>
+
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
     </div>   
+
       </form>
 
 
