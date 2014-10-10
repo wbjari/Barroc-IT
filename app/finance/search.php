@@ -39,76 +39,85 @@ $query= "SELECT * FROM customers WHERE";
 		<tbody>
 		<?php
 $search = trim($search);					
-		if ($search){
+	if ($search){
 			$query .= " CustomerNR = '". $search ."' 
 			OR CompanyName LIKE '%". $search ."%' 
 			OR Adress1 LIKE '%". $search ."%'";
 			$result = mysqli_query($con,$query);
 			$row = mysqli_num_rows($result);
-			
 			if($row > 0){
-
 				while($row = mysqli_fetch_assoc($result)){ 
-					$implode = implode(" ", $row);
-			         echo '<tr>';
-			         echo '<td>' . $row['CompanyName'] . '</td>';
-			         echo '<td>' . $row['BankaccountNr'] . '</td>';
-			         //Bereking credit hieronder
-			         $credit = "SELECT SUM(Amount) AS Credit FROM invoices WHERE CustomerNR = '$implode' AND Status = 1";
-					 $r_credit = mysqli_query($con, $credit); 
-			          while($rows2 = mysqli_fetch_assoc($r_credit))
+				$id = $row['CustomerNR'];
+				echo '<tr>';
+				echo '<td>' . $row['CompanyName'] . '</td>';
+		   	    echo '<td>' . $row['BankaccountNr'] . '</td>';
+			    //Bereking credit hieronder
+				$credit = "SELECT SUM(Amount) AS Credit FROM invoices WHERE CustomerNR = '$id' AND Status = 1";
+			 	$r_credit = mysqli_query($con, $credit); 
+				     while($rows2 = mysqli_fetch_assoc($r_credit))
 							{
 								$credit1 = implode("", $rows2);
 								echo '<td>' . $credit1 . '</td>';
 							}
-			         // Berekening revenue amount hieronder
-			         $sum = "SELECT SUM(Amount) AS RevenueAmount FROM invoices WHERE CustomerNR = '$implode'";
-					 $r_sum = mysqli_query($con, $sum); 
-			          while($rows1 = mysqli_fetch_assoc($r_sum))
-							{
-								$sum1 = implode("", $rows1);
-								echo '<td>' . $sum1 . '</td>';
+					      // Berekening revenue amount hieronder
+					      $sum = "SELECT SUM(Amount) AS RevenueAmount FROM invoices WHERE CustomerNR = '$id'";
+						  $r_sum = mysqli_query($con, $sum); 
+					      while($rows1 = mysqli_fetch_assoc($r_sum))
+						    {
+							$sum1 = implode("", $rows1);
+							echo '<td>' . $sum1 . '</td>';
 							}
-			        $credit2 = $row['Credit'];
-					$limit2 = $row['Limit'];
-					// Check of credit hoger is dan limit
-					if($credit2 > $limit2)
-					{
-         				echo '<td> <div class="limitCheck">' . $row['Limit'] . '</div></td>';
-     				}
-     				else
-     				{
-     					echo '<td>' . $row['Limit'] . '</td>';
-     				}	
-			         echo '<td>' . $row['LedgerAccount'] . '</td>';
-			         echo '<td>' . $row['BKR'] . '</td>';
-			        //Check of BKR Y of N is
-			        $bkrcheck = "SELECT * FROM customers WHERE BKR = 'Y' AND CustomerNR = '$implode'";
-			        $r_bkrcheck = mysqli_query($con, $bkrcheck);
-			        
-			        if(mysqli_num_rows($r_bkrcheck) > 0){
-			        echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
-			        echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
-			    	}
-			    	else{
-			    	echo '<td> <a class="btn btn-warning"href=""</a> Check </td>';
-			        echo '<td> <a class="btn btn-warning"href=""</a> BKR </td>';
-			    	}
-			         echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
-			         //Count aantal facturen hieronder
-					$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$implode' AND Status = 1";
-					$r_count = mysqli_query($con, $count); 
-					while($rows = mysqli_fetch_assoc($r_count))
-						{
-							$counter = implode("", $rows);
-							echo '<td>' . $counter . '</td>';
-						}
-				}
+					      $credit2 = $row['Credit'];
+						  $limit2 = $row['Limit'];
+						  // Check of credit hoger is dan limit
+						  if($credit2 > $limit2)
+							{
+					         	echo '<td> <div class="limitCheck">' . $row['Limit'] . '</div></td>';
+					     	}
+					     	else
+					     	{
+					     		echo '<td>' . $row['Limit'] . '</td>';
+					     	}	
+					        echo '<td>' . $row['LedgerAccount'] . '</td>';
+					        echo '<td>' . $row['BKR'] . '</td>';
+					        //Check of BKR Y of N is
+					        $bkrcheck = "SELECT * FROM customers WHERE BKR = 'Y' AND CustomerNR = '$id'";
+					        $r_bkrcheck = mysqli_query($con, $bkrcheck);
+					        
+					        if(mysqli_num_rows($r_bkrcheck) > 0){
+					        echo '<td> <a class="btn btn-primary"href="activate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+					        echo '<td> <a class="btn btn-primary"href="deactivate.php?cid=' . $row['CustomerNR'] . '"</a> View </td>';
+					    	}
+					    	else{
+					    	echo '<td> <a class="btn btn-warning"href=""</a> Check </td>';
+					        echo '<td> <a class="btn btn-warning"href=""</a> BKR </td>';
+					    	}
+					         echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
+					         //Count aantal facturen hieronder
+							$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$id' AND Status = 1";
+							$r_count = mysqli_query($con, $count); 
+							while($rows = mysqli_fetch_assoc($r_count))
+								{
+									$counter = implode("", $rows);
+									echo '<td>' . $counter . '</td>';
+								}
+			 		}
 		}
-}
+				else
+				 {
+					echo "No results have been found. Please try again.";
+				 }
+
+}	
+else
+  {
+	echo "Please enter a word into the search function.";
+  }
+
+?>
+
 	
-							
-						?>
+	
 		</tbody>
 </table>
 <div class='form-group'>

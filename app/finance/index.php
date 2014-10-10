@@ -42,31 +42,32 @@ if($_SESSION['role'] != 1)
 		<?php
 		while ($row = mysqli_fetch_assoc($r_invoices)) 
         {
+        	$id = $row['CustomerNR'];
         	$implodes = implode(" ", $row);
         	echo '<tr>';
         	echo '<td>' . $row['CompanyName'] . '</td>';
         	echo '<td>' . $row['BankaccountNr'] . '</td>';
         	//Bereking credit hieronder
-        	$credit = "SELECT SUM(Amount) FROM invoices WHERE CustomerNR = '$implodes' AND Status = 1";
+        	$credit = "SELECT SUM(Amount) FROM invoices WHERE CustomerNR = '$id' AND Status = 1";
         	$r_credit = mysqli_query($con, $credit); 
         
         		while($rows2 = mysqli_fetch_assoc($r_credit))
 				{
 					$credit1 = implode("", $rows2);
 					echo '<td>' . $credit1 . '</td>';
-					$insert2 = "UPDATE customers SET Credit = '$credit1' WHERE CustomerNR = '$implodes' LIMIT 1";
+					$insert2 = "UPDATE customers SET Credit = '$credit1' WHERE CustomerNR = '$id' LIMIT 1";
           			$result = mysqli_query($con, $insert2);
 				}
          
          		// Berekening revenue amount hieronder
-         		$sum = "SELECT SUM(Amount) AS RevenueAmount FROM invoices WHERE CustomerNR = '$implodes'";
+         		$sum = "SELECT SUM(Amount) AS RevenueAmount FROM invoices WHERE CustomerNR = '$id'";
 		 		$r_sum = mysqli_query($con, $sum); 
          		
          			while($rows1 = mysqli_fetch_assoc($r_sum))
 					{			
 						$sum1 = implode("", $rows1);
 						echo '<td>' . $sum1 . '</td>';
-						$insert1 = "UPDATE customers SET RevenueAmount = '$sum1' WHERE CustomerNR = '$implodes' LIMIT 1";
+						$insert1 = "UPDATE customers SET RevenueAmount = '$sum1' WHERE CustomerNR = '$id' LIMIT 1";
          				$result = mysqli_query($con, $insert1);
 					}
 				
@@ -85,7 +86,7 @@ if($_SESSION['role'] != 1)
 			        echo '<td>' . $row['BKR'] . '</td>';
 			       	
 			        //Check of BKR Y of N is
-			        $bkrcheck = "SELECT * FROM customers WHERE BKR = 'Y' AND CustomerNR = '$implodes'";
+			        $bkrcheck = "SELECT * FROM customers WHERE BKR = 'Y' AND CustomerNR = '$id'";
 			        $r_bkrcheck = mysqli_query($con, $bkrcheck);
 			        
 			        if(mysqli_num_rows($r_bkrcheck) > 0){
@@ -99,7 +100,7 @@ if($_SESSION['role'] != 1)
 			        echo '<td> <a class="btn btn-success"href="addinfo.php?cid=' . $row['CustomerNR'] . '"</a> Edit </td>';
 			        
 			        //Count aantal facturen hieronder
-					$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$implodes' AND Status = 1" ;
+					$count = "SELECT COUNT(InvoiceNR) AS NumberOfInvoices FROM invoices WHERE CustomerNR = '$id' AND Status = 1" ;
 					$r_count = mysqli_query($con, $count); 
 					
 						while($rows = mysqli_fetch_assoc($r_count))
