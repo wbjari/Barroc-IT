@@ -22,7 +22,7 @@ if (isset($_GET['sortDeactive']))
             $r_projects = mysqli_query($con, $projects);
             break;
         case 'MaintenanceContract':
-            $projects .= " ORDER BY MaintenanceContract ASC, MaintenanceContract DESC";
+            $projects .= " ORDER BY MaintenanceContract ASC";
             $r_projects = mysqli_query($con, $projects);
             break;
         case 'Hardware':
@@ -38,7 +38,7 @@ if (isset($_GET['sortDeactive']))
             $r_projects = mysqli_query($con, $projects);
             break;
         case 'StatusProject':
-            $projects .= " ORDER BY StatusProject ASC, StatusProject DESC";
+            $projects .= " ORDER BY StatusProject ASC";
             $r_projects = mysqli_query($con, $projects);
             break;
         default:

@@ -12,6 +12,7 @@ if($_SESSION['role'] != (2 || 4))
     <h1>Development panel</h1>
 </div>
 <div class='float_btn'>
+	<a class='btn btn-primary' href='../general/comment.php'>Comments</a>
 	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
 </div>
 <form action="search.php" method="get" name="search">
@@ -52,10 +53,21 @@ if($_SESSION['role'] != (2 || 4))
 
 	    $credit2 = $row['Credit'];
 		$limit2 = $row['Limit'];
-				
-		if($credit2 > $limit2) {
+
+		$customerNR = $row['CustomerNR'];
+
+		if($credit2 > $limit2) 
+		{
+			$suspendedQuery = "UPDATE projects SET StatusProject = 'Suspended' WHERE StatusProject = 'Active' AND CustomerNR = '$customerNR'";
+			mysqli_query($con, $suspendedQuery);
+
 			echo '<td> <div class="limitCheck">' . $row['Limit'] . '</div></td>';
-		} else {
+		} 
+		elseif($credit2 < $limit2) 
+		{
+			$activeQuery = "UPDATE projects SET StatusProject = 'Active' WHERE StatusProject = 'Suspended' AND CustomerNR = '$customerNR'";
+			mysqli_query($con, $activeQuery);
+
 			echo '<td>' . $row['Limit'] . '</td>';
 		}
 

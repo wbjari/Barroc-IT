@@ -1,10 +1,10 @@
-<?php 	require '../../config/config.php';?>
-<?php
+<?php 
+require '../../config/config.php';
 
 $projects = 'SELECT * FROM projects';
 $r_projects = mysqli_query($con, $projects);
 
-$customers = 'SELECT * FROM customers WHERE BKR = "Y"';
+$customers = 'SELECT * FROM customers WHERE BKR = "Y" AND Prospect = "N"';
 $r_customers = mysqli_query($con, $customers);
 
 $i = 1;
