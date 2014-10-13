@@ -53,7 +53,7 @@ if(isset($_GET['cid']))
 
     <div class="form-group col-sm-6">
         <label for="MaintenanceContract">MaintenanceContract</label>
-        <input type="text" class="form-control" name="MaintenanceContract" placeholder="Yes / No" required>   
+        <input type="text" class="form-control" name="MaintenanceContract" placeholder="Y/N" required>   
     </div>
 
     <div class="form-group col-sm-6">

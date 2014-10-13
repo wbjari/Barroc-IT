@@ -63,7 +63,7 @@ if ($row = mysqli_fetch_assoc($r_update))
 
     <div class="form-group col-sm-6">
         <label for="MaintenanceContract">Maintenance Contract</label>
-        <input value="<?php echo $row['MaintenanceContract']; ?>" type="text" class="form-control" name="MaintenanceContract" placeholder="Yes / No" required>   
+        <input value="<?php echo $row['MaintenanceContract']; ?>" type="text" class="form-control" name="MaintenanceContract" placeholder="Y/N" required>   
     </div>
 
     <div class="form-group col-sm-6">
