@@ -8,6 +8,7 @@ if($_SESSION['role'] != (2 || 4))
 	header('location: ../index.php');
 }
 
+$id = $_SESSION['checkid'];
 $search = mysqli_real_escape_string($con, $_GET['search_deactivate']);
 $query = "SELECT * FROM projects WHERE BKR = 'Y' AND "; 
 ?>
@@ -68,6 +69,8 @@ $query = "SELECT * FROM projects WHERE BKR = 'Y' AND ";
 		} else {
 			echo "No results found.";
 		}
+	} else {
+		echo "Please enter something in the search bar.";
 	}							
 	?>
 	</tbody>

@@ -70,7 +70,9 @@ $query = "SELECT * FROM customers WHERE BKR = 'Y' AND ";
 		} else {
 			echo "No results found.";
 		}
-	}							
+	} else {
+		echo "Please enter something in the search bar.";
+	}						
 	?>
 	</tbody>
 </table>

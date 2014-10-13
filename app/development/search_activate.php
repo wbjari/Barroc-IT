@@ -8,6 +8,7 @@ if($_SESSION['role'] != (2 || 4))
 	header('location: ../index.php');
 }
 
+$id = $_SESSION['checkid'];
 $search = mysqli_real_escape_string($con, $_GET['search_activate']);
 $query = "SELECT * FROM projects WHERE Status = 1 AND ";
 ?>
@@ -72,7 +73,9 @@ $query = "SELECT * FROM projects WHERE Status = 1 AND ";
 		} else {
 			echo "No results found.";
 		}
-	}							
+	} else {
+		echo "Please enter something in the search bar.";
+	}				
 	?>
 	</tbody>
 </table>

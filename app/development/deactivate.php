@@ -11,6 +11,7 @@ if($_SESSION['role'] != (2 || 4))
 // Gets the id and status of the projects. If status = 0, the project is an deactivated project
 if(isset($_GET['cid']))
 {
+    $_SESSION['checkid'] = $_GET['cid'];
     $id = $_GET['cid'];
     $projects .= " WHERE CustomerNR = '$id' AND Status = 0";
     $r_projects = mysqli_query($con, $projects);
