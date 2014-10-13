@@ -2,6 +2,7 @@
 require '../templates/header.php';
 require '../controllers/projectsController.php';
 
+// If the userrole isn't 2 OR 4: user goes back to index page
 if($_SESSION['role'] != (2 || 4)) 
 {
 	header('location: ../index.php');
@@ -15,12 +16,12 @@ $query = "SELECT * FROM projects WHERE BKR = 'Y' AND ";
     <h1>Development panel</h1>
 </div>
 
-<!--LOGOUT BUTTON-->
+<!-- Logout button -->
 <div class='float_btn'>
 	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
 </div>
 
-<!--SEARCH-->
+<!-- Search button -->
 <form action="search_deactivate.php" method="get" name="search_deactivate">
 	<input id="search-bar" type="text" name="search_deactivate">
 	<input id="search-button" type="submit" value="Search" class="btn btn-primary">
@@ -72,7 +73,7 @@ $query = "SELECT * FROM projects WHERE BKR = 'Y' AND ";
 	</tbody>
 </table>
 
-<!--BACK BUTTON-->
+<!-- Back button -->
 <div class='form-group'>
   	<a class='btn btn-default' href='index.php'>Back</a>
 </div>

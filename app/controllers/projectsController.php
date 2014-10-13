@@ -25,7 +25,6 @@ if(isset($_GET['did'])){
 	$r_deactivate = mysqli_query($con, $deactivate);
 	header('location: ../development/index.php');
 }
-
 if (isset($_GET['sort']))
 {
 	$getSort = $_GET['sort'];
@@ -69,5 +68,4 @@ if (isset($_GET['sort']))
 			break;
 	}
 }
-
 ?>
