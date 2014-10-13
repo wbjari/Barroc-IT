@@ -24,7 +24,7 @@ if($_SESSION['role'] != (2 || 4))
 		<tr>
 			<td class="col-sm-2"><a href="index.php?sort=CompanyName">Company name</a></td>
 			<td class="col-sm-2"><a href="index.php?sort=ContactPerson">Contact person</td>
-			<td class="col-sm-2"><a href="index.php?sort=Address1">Address</td>
+			<td class="col-sm-2"><a href="index.php?sort=Adress1">Address</td>
 			<td class="col-sm-2"><a href="index.php?sort=Zipcode1">Zip code</td>
 			<td class="col-sm-2"><a href="index.php?sort=Residence1">Residence</td>
 			<td class="col-sm-2"><a href="index.php?sort=TelephoneNumber1">Telephone number</td>
@@ -44,7 +44,7 @@ if($_SESSION['role'] != (2 || 4))
 	    echo '<tr>';
 	    echo '<td>' . $row['CompanyName'] . '</td>';
 	    echo '<td>' . $row['ContactPerson'] . '</td>';
-	    echo '<td>' . $row['Address1'] . '</td>';
+	    echo '<td>' . $row['Adress1'] . '</td>';
 	    echo '<td>' . $row['Zipcode1'] . '</td>';
 	    echo '<td>' . $row['Residence1'] . '</td>';
 	    echo '<td>' . $row['TelephoneNumber1'] . '</td>';

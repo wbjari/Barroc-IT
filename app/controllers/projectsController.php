@@ -40,8 +40,8 @@ if (isset($_GET['sort']))
 			$customers .= " ORDER BY ContactPerson ASC";
 	    	$r_customers = mysqli_query($con, $customers);
 	    	break;
-	    case 'Address1':
-	    	$customers .= " ORDER BY Address1 ASC";
+	    case 'Adress1':
+	    	$customers .= " ORDER BY Adress1 ASC";
 	    	$r_customers = mysqli_query($con, $customers);
 	    	break;
 	    case 'Zipcode1':
