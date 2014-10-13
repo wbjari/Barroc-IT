@@ -19,10 +19,13 @@ $query = "SELECT * FROM customers WHERE BKR = 'Y' AND ";
 <div class='float_btn'>
 	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
 </div>
+
+<!--SEARCH-->
 <form action="search.php" method="get" name="search">
 	<input id="search-bar" type="text" name="search">
 	<input id="search-button" type="submit" value="Search" class="btn btn-primary">
 </form>
+
 <table class='table table-striped'>
 	<thead>
 		<tr>
@@ -54,7 +57,7 @@ $query = "SELECT * FROM customers WHERE BKR = 'Y' AND ";
 
 			    $count = "SELECT COUNT(ProjectNR) FROM projects WHERE CustomerNR = '$i'";
 				$r_count = mysqli_query($con, $count); 
-				$i++;
+				$i++;	
 
 		    	while($rows = mysqli_fetch_assoc($r_count))
 				{

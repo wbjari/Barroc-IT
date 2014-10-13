@@ -35,6 +35,7 @@ if (isset($_GET['sort']))
 			$customers .= " ORDER BY CompanyName ASC";
 			$r_customers = mysqli_query($con, $customers);
 			break;
+
 		case 'ContactPerson':
 			$customers .= " ORDER BY ContactPerson ASC";
 	    	$r_customers = mysqli_query($con, $customers);
