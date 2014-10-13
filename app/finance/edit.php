@@ -2,44 +2,45 @@
 		require '../controllers/invoiceController.php';
 
 if($_SESSION['role'] != 1)
-{
-	header('location: ../index.php');
-}
+  {
+  	header('location: ../index.php');
+  }
 if(isset($_GET['id']))
-{
-  $back = $_GET['id'];
-}
+  {
+    $back = $_GET['id'];
+  }
 if (isset($_POST['submit'])) 
-{
-	$id = $_GET['cid'];
-	$InvoiceDuration = mysqli_real_escape_string($con, $_POST['InvoiceDuration']);
-	$Quantity = mysqli_real_escape_string($con, $_POST['Quantity']);
-  $Description = mysqli_real_escape_string($con, $_POST['Description']);
-  $Price = mysqli_real_escape_string($con, $_POST['Price']);
-  $BTW = mysqli_real_escape_string($con, $_POST['BTW']);
-  $Amount = mysqli_real_escape_string($con, $_POST['Amount']);
-	$query = "UPDATE invoices SET InvoiceDuration = '$InvoiceDuration', 
-                                Quantity = '$Quantity', 
-                                Description = '$Description',  
-                                Price = '$Price', 
-                                BTW = '$BTW',
-                                Amount = '$Amount'
-                                WHERE InvoiceNR = '$id' LIMIT 1";
-	$result = mysqli_query($con, $query);
+  {
+  	$id = $_GET['cid'];
+  	$InvoiceDuration = mysqli_real_escape_string($con, $_POST['InvoiceDuration']);
+  	$Quantity = mysqli_real_escape_string($con, $_POST['Quantity']);
+    $Description = mysqli_real_escape_string($con, $_POST['Description']);
+    $Price = mysqli_real_escape_string($con, $_POST['Price']);
+    $BTW = mysqli_real_escape_string($con, $_POST['BTW']);
+    $Amount = mysqli_real_escape_string($con, $_POST['Amount']);
+  	$query = "UPDATE invoices SET InvoiceDuration = '$InvoiceDuration', 
+                                  Quantity = '$Quantity', 
+                                  Description = '$Description',  
+                                  Price = '$Price', 
+                                  BTW = '$BTW',
+                                  Amount = '$Amount'
+                                  WHERE InvoiceNR = '$id' LIMIT 1";
+  	$result = mysqli_query($con, $query);
 
-  //MOET NOG GEFIXT WORDEN MAKKELIJKE MANIER 
-    header("location: ./index.php");  
-      
-}
+    //MOET NOG GEFIXT WORDEN MAKKELIJKE MANIER 
+      header("location: ./index.php");  
+        
+  }
 if(isset($_GET['id']))
-{
-  $back = $_GET['id'];
-}
+  {
+    $back = $_GET['id'];
+  }
 if(isset($_GET['cid']))
-{
-  $id = $_GET['cid'];
-  $update = "SELECT * FROM Invoices WHERE InvoiceNR = '$id' ";
-  $r_update = mysqli_query($con,$update);}
+  {
+    $id = $_GET['cid'];
+    $update = "SELECT * FROM Invoices WHERE InvoiceNR = '$id' ";
+    $r_update = mysqli_query($con,$update);
+  }
 ?>
 <div class="panel-text">
     <h1>Finance panel: Edit</h1>
@@ -52,7 +53,7 @@ if(isset($_GET['cid']))
 
 <?php
 if ($row = mysqli_fetch_assoc($r_update)) 
-{
+  {
 ?>
 
 <form action="" method="POST">

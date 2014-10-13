@@ -110,6 +110,8 @@ if($_SESSION['role'] != 1)
 				{
 					$counter = implode("", $rows);
 					echo '<td>' . $counter . '</td>';
+					$insert2 = "UPDATE customers SET NumberOfInvoices = '$counter' WHERE CustomerNR = '$id' LIMIT 1";
+         			$result1 = mysqli_query($con, $insert2);
 				}
          		echo '</tr>';  
         }   

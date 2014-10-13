@@ -59,19 +59,26 @@ if ($row = mysqli_fetch_assoc($r_update))
      <label for="LedgerAccount">Ledger account</label>
      <input value="<?php echo $row['LedgerAccount']; ?>" type="text" class="form-control" name="LedgerAccount" placeholder="Ledgeraccount">   
     </div>
-
+    <?php
+    if($row['BKR'] == 'N')
+      {
+    ?>
     <div class="form-group col-sm-6">
      <label for="BKR">BKR</label>
      <input value="<?php echo $row['BKR']; ?>" type="text" class="form-control" name="BKR" placeholder="Y / N" >    
     </div>
-    
+    <?php
+      }
+    ?>
     <div class="form-group col-sm-6">
      <label for="Limit">Limit</label>
      <input value="<?php echo $row['Limit']; ?>" type="text" class="form-control" name="Limit" >    
     </div>
 
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-12">
+      <div class="float_left">
      <input name="submit" type="submit" value="Save" class="btn btn-primary">     
+      </div>
     </div>   
       </form>
   <?php
