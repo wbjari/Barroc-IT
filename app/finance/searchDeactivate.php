@@ -6,13 +6,12 @@ if($_SESSION['role'] != 1)
   header('location: ../index.php');
 }
 
-if(isset($_GET['cid']))
-{
-  $_SESSION['checkid'] = $_GET['cid'];
-  $id = $_GET['cid'];
-  $view = "SELECT * FROM invoices WHERE  CustomerNR= '$id' AND Status = 0";
-  $r_view = mysqli_query($con, $view);
-}
+
+  
+  $id = $_SESSION['checkid'];
+  $search = mysqli_real_escape_string($con, $_GET['search']);
+  $query= "SELECT * FROM Invoices WHERE Status = 0 AND CustomerNR = $id AND";
+
 ?>
 
 <div class="panel-text">
@@ -41,7 +40,15 @@ if(isset($_GET['cid']))
     </thead>
     <tbody>
     <?php
-      while ($row = mysqli_fetch_assoc($r_view)) 
+      $search = trim($search);          
+  if ($search){
+      $query .= " (Quantity LIKE '%". $search ."%' 
+      OR Description LIKE '%". $search ."%' 
+      OR Price LIKE '%". $search ."%')";
+      $result = mysqli_query($con,$query);
+      $row = mysqli_num_rows($result);
+      if($row > 0){
+    while ($row = mysqli_fetch_assoc($result)) 
       {
          echo '<tr>';
          echo '<td>' . $row['InvoiceDuration'] . '</td>';
@@ -52,7 +59,18 @@ if(isset($_GET['cid']))
          echo '<td>' . $row['Amount'] . '</td>';
          echo '<td><a class="btn btn-success" href="../controllers/invoiceController.php?did=' . $row['InvoiceNR'] . '&test=' . $row['CustomerNR'] . '">Not paid</a></td>';
          echo '</tr>';        
-      }       
+      }
+      }
+        else
+         {
+          echo "No results have been found. Please try again.";
+         }
+
+} 
+else
+  {
+  echo "Please enter a word into the search function.";
+  }       
     ?>
 </table>
 

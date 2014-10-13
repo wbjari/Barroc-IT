@@ -61,15 +61,15 @@ if (isset($_POST['submit']))
 	<LEGEND>Add</LEGEND>
     <div class="form-group col-sm-6">
      <label for="Date" >Date</label>
-     <input type="date" class="form-control" name="Date" placeholder="Text" required>    
+     <input type="date" class="form-control" name="Date" required>    
     </div>
     <div class="form-group col-sm-6">
      <label for="Subject" >Subject</label>
-     <input type="text" class="form-control" name="Subject" placeholder="150" required>    
+     <input type="text" class="form-control" name="Subject" placeholder="Barroc IT" required>    
     </div>
     <div class="form-group col-sm-6">
      <label for="Description" >Description</label>
-     <input type="text" class="form-control" name="Description" placeholder="5" required>   
+     <input type="text" class="form-control" name="Description" placeholder="There has been a problem with the communication ......" required>   
     </div>
     <div class="form-group col-sm-12">
      <input name="submit" type="submit" value="Add" class="btn btn-primary">     
@@ -105,7 +105,7 @@ if (isset($_POST['submit']))
 		elseif($_SESSION['role'] == 4){
 		 echo "<div class='form-group'>
               <div class ='float_left'>
-  			     <a class='btn btn-default' href='../sales/'>Back</a>
+  			     <a class='btn btn-default' href='../admin/'>Back</a>
               </div>
 		       </div>";
 			  }  
