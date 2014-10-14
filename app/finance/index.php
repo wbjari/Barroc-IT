@@ -1,7 +1,7 @@
 <?php 	require '../templates/header.php';
 		require '../controllers/invoiceController.php';
 
-if($_SESSION['role'] != 1)
+if($_SESSION['role'] != 1) 
 {
 	header('location: ../index.php');
 }
@@ -32,7 +32,7 @@ if($_SESSION['role'] != 1)
 				<td class="col-sm-2">Limit</td>
 				<td class="col-sm-2">Ledger account</td>
 				<td class="col-sm-2">BKR</td>
-				<td class="col-sm-2">Not paid invoices</td>
+				<td class="col-sm-2">Unpaid invoices</td>
 				<td class="col-sm-2">Paid invoices</td>
 				<td class="col-sm-2">Edit</td>
 				<td class="col-sm-2">Invoice number</td>

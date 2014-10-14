@@ -1,5 +1,11 @@
 <?php
+	# Path constants
+	define("ROOT", "http://barrocit");
+	define("ASSETS", ROOT."/app/assets");
 
-$con = mysqli_connect('localhost', 'root', '', 'barroc-it');
-
+	# Database credentials
+	define("DBNAME", "barroc-it");
+	define("USER", "root");
+	define("PASS", "");
+	define("HOST", "localhost");
 ?>
