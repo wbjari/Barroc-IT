@@ -10,7 +10,6 @@ if (isset($_POST['submit']))
 {
   // error_reporting(E_ALL ^ E_NOTICE);
   $id          = $_GET['cid'];
-  var_dump($id);
 
   $date        = mysqli_real_escape_string($con, $_POST['Date']);
   $name        = mysqli_real_escape_string($con, $_POST['Name']);
@@ -23,7 +22,7 @@ if (isset($_POST['submit']))
    $lastId = mysqli_insert_id($con);
 
     // header("location: ./view.php?id=".$lastId);
-     // header("location: ./index.php");
+     header("location: ./index.php");
       
 }
 ?>
