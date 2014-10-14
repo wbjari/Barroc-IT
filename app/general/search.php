@@ -67,7 +67,16 @@ $search = trim($search);
          	echo '</tr>';  
         }   
       }
-    }
+      else
+         {
+          echo "No results have been found. Please try again.";
+         }
+}
+        
+else
+  {
+  echo "Please enter a word into the search function.";
+  }
 		?>     
 		</tbody>
 </table>
@@ -90,6 +99,8 @@ $search = trim($search);
     </div>   
 </form>
 <div class='form-group'>
-  <a class='btn btn-default' href='comment.php'>Back</a>
+  <div class ='float_left'>
+    <a class='btn btn-default' href='comment.php'>Back</a>
+  </div>
 </div>
 <?php require'../templates/footer.php';?>
