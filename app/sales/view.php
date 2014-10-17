@@ -7,7 +7,7 @@ if(isset($_GET['id'])){
 
 	$query=mysqli_query($con, "SELECT * FROM customers WHERE CustomerNR = '$id'");
 	while($row = mysqli_fetch_assoc($query)){
-    echo "<a class='btn btn-primary' href=edit.php?cid=" . $row['CustomerNR'] . ">Edit</a>";
+    echo "<a title='Edit customer' class='btn btn-primary' href=edit.php?cid=" . $row['CustomerNR'] . "><span class='glyphicon glyphicon-pencil'></span></a>";
   		
   		$id = $_GET['id'];
 		$CompanyName = $row['CompanyName'];
@@ -44,10 +44,10 @@ if(isset($_GET['id'])){
 	}
 	?>
  <div class='float_btn'>
-    <a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
+    <a title="Logout" class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
   <div class='button_add'>
-	<a class='btn btn-primary' href='<?php echo "addAppointment.php?cid=$id"?>'>Add appointment</a>
+	<a title="Add appointment" class='btn btn-primary' href='<?php echo "addAppointment.php?cid=$id"?>'><span class="glyphicon glyphicon-plus"></span></a>
   </div>
 	<div class="user-table col-sm-6" style="margin:auto;">
 		<h2>View: <?php echo $CompanyName;?></h2>
@@ -174,15 +174,11 @@ if(isset($_GET['id'])){
 			<td><?php echo $InternalContactPerson;?></td>
 		</tr>
 		</div>
-		<tbody>
+		</tbody>
+		</table>
+    
+    <?php } ?>
+
+    <div class='form-group'>
+ 	 <a title="Back" class='btn btn-default' href='index.php'><span class="glyphicon glyphicon-chevron-left"></span></a>
 	</div>
-    </body>
-    </html>
-    <?php
-}
-
-
-
-
-
-?>

@@ -1,5 +1,5 @@
 <?php 	require '../templates/header.php';
-		require '../../config/config.php';
+		    require '../../config/config.php';
 $query = "SELECT * FROM comments";
 $r_query = mysqli_query($con, $query);
 if(!$_SESSION['role'])

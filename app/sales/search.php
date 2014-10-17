@@ -6,7 +6,8 @@ if($_SESSION['role'] != 3)
 	header('location: ../index.php');
 }
 $search = mysqli_real_escape_string($con, $_GET['search']);
-$query= "SELECT * FROM customers WHERE";
+$query = "SELECT * FROM customers WHERE";
+$searchValue = "HOI";
 ?>
 
 <div class="panel-text">
@@ -16,24 +17,21 @@ $query= "SELECT * FROM customers WHERE";
 	<a class='btn btn-primary' href='<?php echo "../controllers/authController.php?logout=true"?>'>Logout</a>
   </div>
   				<form action="search.php" method="get" name="search">
-					<input id="search-bar" type="text" name="search">
+					<input id="search-bar" value="<?php echo $searchValue ?>" type="text" name="search">
 					<input id="search-button" type="submit" value="Search" class="btn btn-primary">
 				</form>
 <table class='table table-striped'>
 		<thead>
 			<tr>
-				<td class="col-sm-2">Companyname</td>
-				<td class="col-sm-2">Bank account number</td>
-				<td class="col-sm-2">Credit</td>
-				<td class="col-sm-2">Revenue amount</td>
-				<td class="col-sm-2">Limit</td>
-				<td class="col-sm-2">Ledger account</td>
-				<td class="col-sm-2">BKR</td>
-				<td class="col-sm-2">Activated invoices</td>
-				<td class="col-sm-2">Deactivated invoices</td>
-				<td class="col-sm-2"></td>
-				<td class="col-sm-2">Invoice number</td>
-			</tr>
+				<th>Company name</th>
+		        <th>Contact person</th>
+		        <th>E-mail address</th>
+		        <th>Telephone number</th>
+		        <th>Fax number</th>
+		        <th>Prospect</th>
+		        <th>Active<br/>appointments</th>
+		        <th>Inactive<br/>appointments</th>
+		        <th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -49,15 +47,22 @@ $search = trim($search);
 			if($row > 0){
 
 				while($row = mysqli_fetch_assoc($result)){ 
-	          echo '<tr>';
+	         echo '<tr>';
           echo '<td>'. $row['CompanyName'] . '</td>';
           echo '<td>'. $row['ContactPerson'] . '</td>';
           echo '<td>'. $row['Email'] . '</td>';
           echo '<td>'. $row['TelephoneNumber1'] . '</td>';
           echo '<td>'. $row['FaxNumber'] . '</td>';
           echo '<td>'. $row['Prospect'] . '</td>';
-          echo '<td width=200>';
-          echo '<a class="btn btn-success" href="view.php?id='.$row['CustomerNR'].'">View</a>';
+          echo '<td><a title="View active appointments of this customer"
+                class="btn btn-success" href="activeAppointments.php?id='.$row['CustomerNR'].'">
+                <span class="glyphicon glyphicon-ok"></span></a></td>';
+          echo '<td><a title="View inactive appointments of this customer"
+                class="btn btn-success" href="inactiveAppointments.php?id='.$row['CustomerNR'].'">
+                <span class="glyphicon glyphicon-remove"></span></a></td>';
+          echo '<td><a title="View more information about this customer"
+                class="btn btn-success" href="view.php?id='.$row['CustomerNR'].'">
+                <span class="glyphicon glyphicon-eye-open"></span></a></td>';
           echo '</tr>';
 					}
 			}
@@ -67,7 +72,7 @@ $search = trim($search);
 		</tbody>
 </table>
 <div class='form-group'>
-  <a class='btn btn-default' href='index.php'>Back</a>
+  <a class='btn btn-default' href='index.php'><span class="glyphicon glyphicon-chevron-left"></span></a>
 </div>
 
 <?php require'../templates/footer.php';?>
